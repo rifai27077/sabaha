@@ -43,56 +43,56 @@ export default function UserLogin() {
             <div className="w-full max-w-md">
                 
                 <button
-                onClick={() => router.back()}
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-[#103051] text-white mb-6 hover:bg-[#0c243d] transition"
+                    onClick={() => router.back()}
+                    className="flex items-center justify-center w-10 h-10 rounded-full bg-[#103051] text-white mb-6 hover:bg-[#0c243d] transition"
                 >
-                <ChevronLeft className="w-5 h-5" />
+                    <ChevronLeft className="w-5 h-5" />
                 </button>
 
                 <div className="flex justify-center mb-8">
-                <Image 
-                    src="/logo.png" 
-                    alt="Sahaba Logo" 
-                    width={280} 
-                    height={190} 
-                    className="h-auto w-auto max-w-[280px]" 
-                />
+                    <Image 
+                        src="/images/logo.png" 
+                        alt="Sahaba Logo" 
+                        width={280} 
+                        height={190} 
+                        className="h-auto w-auto max-w-[280px]" 
+                    />
                 </div>
 
                 <form onSubmit={handleLogin} className="flex flex-col space-y-4">
-                <div className="relative">
-                    <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full h-12 sm:h-14 bg-gray-100 text-black rounded-lg pl-4 pr-10 text-sm sm:text-base
-                                focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-400"
-                    required
-                    />
-                    <Mail className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                </div>
+                    <div className="relative">
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="w-full h-12 sm:h-14 bg-gray-100 text-black rounded-lg pl-4 pr-10 text-sm sm:text-base
+                                        focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-400"
+                            required
+                        />
+                        <Mail className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    </div>
 
-                <div className="relative">
-                    <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="w-full h-12 sm:h-14 bg-gray-100 text-black rounded-lg pl-4 pr-10 text-sm sm:text-base
-                                focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-400"
-                    required
-                    />
-                    <Lock className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                </div>
+                    <div className="relative">
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            className="w-full h-12 sm:h-14 bg-gray-100 text-black rounded-lg pl-4 pr-10 text-sm sm:text-base
+                                        focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-400"
+                            required
+                        />
+                        <Lock className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    </div>
 
-                <button
-                    type="submit"
-                    className="w-full bg-[#103051] text-white rounded-full py-3 sm:py-4 font-medium 
-                            hover:bg-[#0c243d] transition text-sm sm:text-base cursor-pointer"
-                >
-                    Masuk
-                </button>
+                    <button
+                        type="submit"
+                        className="w-full bg-[#103051] text-white rounded-full py-3 sm:py-4 font-medium 
+                                hover:bg-[#0c243d] transition text-sm sm:text-base cursor-pointer"
+                    >
+                        Masuk
+                    </button>
                 </form>
 
                 <button

@@ -55,7 +55,7 @@ export default function MitraRegister() {
             <div className="w-full max-w-md">
                 <div className="flex justify-center mb-8">
                     <Image 
-                        src="/logo.png" 
+                        src="/images/logo.png" 
                         alt="Sahaba Logo" 
                         width={280} 
                         height={190} 
