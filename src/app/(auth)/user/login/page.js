@@ -51,7 +51,7 @@ export default function UserLogin() {
 
                 <div className="flex justify-center mb-8">
                 <Image 
-                    src="/logo.png" 
+                    src="/images/logo.png" 
                     alt="Sahaba Logo" 
                     width={280} 
                     height={190} 
@@ -109,12 +109,12 @@ export default function UserLogin() {
                 </button>
 
                 <p className="mt-6 text-center text-sm sm:text-base text-gray-600">
-                    Sudah Punya Akun?{" "}
+                    Belum Punya Akun?{" "}
                     <button
-                        onClick={() => router.push("/user/login")}
+                        onClick={() => router.push("/user/register")}
                         className="text-blue-500 font-medium cursor-pointer"
                     >
-                        Masuk
+                        Daftar
                     </button>
                 </p>
 
