@@ -30,7 +30,6 @@ function NavItem({ href, icon, label, active }) {
   )
 }
 
-
 export default function Navigation({ active = "home" }) {
   return (
     <nav className="fixed bottom-0 left-0 right-0 w-full bg-white border-t flex items-center justify-between px-6 pt-1 pb-4 z-[999] shadow-md pb-[env(safe-area-inset-bottom)]">
