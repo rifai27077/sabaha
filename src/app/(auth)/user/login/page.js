@@ -64,7 +64,6 @@ export default function UserLogin() {
                     height={190} 
                     className="h-auto w-auto max-w-[280px]" 
                 />
->>>>>>> bc7a5e9a95ab9d4cd4f800dd8cfd487abfabd274
                 </div>
 
                 <form onSubmit={handleLogin} className="flex flex-col space-y-4">
