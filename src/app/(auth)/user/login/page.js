@@ -57,13 +57,6 @@ export default function UserLogin() {
                         height={190} 
                         className="h-auto w-auto max-w-[280px]" 
                     />
-                <Image 
-                    src="/images/logo.png" 
-                    alt="Sahaba Logo" 
-                    width={280} 
-                    height={190} 
-                    className="h-auto w-auto max-w-[280px]" 
-                />
                 </div>
 
                 <form onSubmit={handleLogin} className="flex flex-col space-y-4">
