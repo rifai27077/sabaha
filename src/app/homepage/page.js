@@ -1,8 +1,11 @@
+
 "use client"
 
 import { Mail, LogOut, Plus, History, Eye, Utensils, Home, Shirt, Waves, Badge, Moon, Star, Flag, Car, Info } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Link from "next/link"
+import { Mail, LogOut, Plus, History, Eye, Utensils, Home, Shirt, Waves, Badge, Moon, Star, Flag, Car, Info, Link } from "lucide-react";
+import BottomNav from "@/components/BottomNav";
 
 const services = [
   { name: "SabaFood", icon: <Utensils className="w-10 h-10 text-amber-500" />, link: "/sabafood" },
@@ -34,7 +37,6 @@ const services = [
   { name: "SabaDrive", href: "/home/sabadrive", icon: <Car className="w-10 h-10 text-amber-500" /> },
   { name: "SabaInfo",  href: "/home/sabainfo",  icon: <Info className="w-10 h-10 text-amber-500" /> },
 ]
-
 const cards = [
   {
     title: "Keutamaan Shalat di Masjidil Haram dan Masjid Nabawi",
