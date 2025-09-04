@@ -44,7 +44,7 @@ export default function OrderSummary() {
             <div className="flex items-center justify-between">
                 <h1 className="text-base font-semibold text-gray-900">Order summary</h1>
                 <button
-                    onClick={() => router.push(`/home/sabafood/restaurant/${restaurantId}`)}
+                    onClick={() => router.push(`/sabafood/restaurant/${restaurantId}`)}
                     className="text-sm font-medium text-blue-600 cursor-pointer"
                 >
                     Add items
@@ -261,7 +261,7 @@ export default function OrderSummary() {
                         onClick={() => {
                             alert("Order placed successfully!")
                             clearBasket()
-                            router.push("/home/sabafood/");
+                            router.push("/sabafood/");
                         }}
                         className="w-full bg-[#103051] text-white py-3 rounded-full flex items-center justify-center gap-2 hover:bg-[#0c2742] transition-colors cursor-pointer"
                     >

@@ -9,7 +9,7 @@ import {
   Shirt,
   Droplet,
   Star,
-    Icon,
+  Icon,
   MapPin,
   Clock,
 } from "lucide-react"
@@ -156,7 +156,7 @@ function Shortcut({ icon, label }) {
 
 function LaundryCard({ id, name, rating, time, distance, reviews, img }) {
   return (
-    <Link href={`/home/sabawash/laundry/${id}`} className="block">
+    <Link href={`/sabawash/laundry/${id}`} className="block">
       <div className="w-full text-left flex items-center space-x-3 mb-4 bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition">
         <Image
           src={img}

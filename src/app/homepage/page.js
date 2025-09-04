@@ -4,8 +4,6 @@
 import { Mail, LogOut, Plus, History, Eye, Utensils, Home, Shirt, Waves, Badge, Moon, Star, Flag, Car, Info } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Link from "next/link"
-import { Mail, LogOut, Plus, History, Eye, Utensils, Home, Shirt, Waves, Badge, Moon, Star, Flag, Car, Info, Link } from "lucide-react";
-import BottomNav from "@/components/BottomNav";
 
 const services = [
   { name: "SabaFood", icon: <Utensils className="w-10 h-10 text-amber-500" />, link: "/sabafood" },
@@ -59,7 +57,7 @@ const cards = [
     img: "/images/card-informasi-4.jpg",
   },
 ];
-export default function Homepage() {
+export default function He() {
   return (
      <div className="bg-gradient-to-b from-[#103051] to-[#1e4d7b] min-h-screen">
       {/* Header */}
