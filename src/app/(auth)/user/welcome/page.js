@@ -10,7 +10,7 @@ export default function UserWelcomePage() {
     return (
         <div 
             className="min-h-screen flex flex-col items-center justify-start bg-white px-6 pt-12 text-left"
-            onClick={() => router.push("/home")}
+            onClick={() => router.push("/homepage")}
         >
             <div className="w-full max-w-md">
                 <button

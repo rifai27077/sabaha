@@ -212,8 +212,7 @@ export default function Homepage() {
                 {/* Link */}
                 <a
                   href="#"
-                  className="text-blue-500 text-sm font-medium whitespace-nowrap"
-                >
+                  className="text-blue-500 text-sm font-medium whitespace-nowrap">
                   Lihat &gt;
                 </a>
               </div>
