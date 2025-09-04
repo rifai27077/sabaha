@@ -31,8 +31,8 @@ export default function OnboardingPage() {
         "
       >
         <Image
-          src="/images/onboarding-illustration.png"
-          alt="Onboarding Illustration"
+          src="/images/illustrations/register.png"
+          alt="register Illustration"
           width={220}
           height={220}
           className="
@@ -88,5 +88,5 @@ export default function OnboardingPage() {
       {/* Spacer bawah */}
       <div className="h-12"></div>
     </div>
-  )
+  );
 }

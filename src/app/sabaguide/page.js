@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Header from "@/components/Header";
-import BottomNav from "@/app/components/BottomNav";
+import BottomNav from "@/components/BottomNav";
 import {
   Search,
   Percent,
@@ -250,18 +250,18 @@ function FeaturedCard({ title, country, rating, image, active }) {
 
 function MostVisitedCard({ title, country, rating, price, image, bookmarked, onToggle }) {
   return (
-    <div className="relative bg-white rounded-2xl shadow-md flex gap-2 mb-3 items-center">
-      <div className="relative w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          className="object-cover"
-          sizes="80px"
-        />
-      </div>
+      <div className="relative bg-white rounded-2xl shadow-md flex gap-2 items-start w-full h-30 break-words">
+        <div className="relative w-20 h-30 rounded-xl overflow-hidden flex-shrink-0">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="object-cover"
+            sizes="80px"
+          />
+        </div>
 
-      <div className="flex-1">
+      <div className="flex-1 pl-1 pr-3 py-2">
         <h4 className="font-semibold text-gray-900 leading-snug">{title}</h4>
         <div className="mt-0.5 text-sm text-gray-700">
           <span className="inline-flex items-center gap-1">

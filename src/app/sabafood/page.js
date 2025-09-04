@@ -26,28 +26,31 @@ export default function HomePage() {
 
     const restaurants = [
         {
+            id: "al-baik-zam-zam",
             name: "Rahwa Sofwa Tower",
             categories: "Rice, Chicken & Nugget, Beverages",
             rating: 4.9,
             delivery: "10 min",
             distance: "0.2 km",
-            img: "/resto1.jpg",
+            img: "/images/sabafood/resto1.jpg",
         },
         {
+            id: "an-ihl-chicken",
             name: "An-Ihl Chicken",
             categories: "Rice, Chicken & Nugget, Beverages",
             rating: 4.9,
             delivery: "15 min",
             distance: "1.0 km",
-            img: "/resto2.jpg",
+            img: "/images/sabafood/resto2.jpg",
         },
         {
+            id: "araiz-food",
             name: "Araiz Food Restaurant",
             categories: "Rice, Chicken & Nugget, Beverages",
             rating: 4.9,
             delivery: "35 min",
             distance: "1.5 km",
-            img: "/resto3.jpg",
+            img: "/images/sabafood/resto3.jpg",
         },
     ]
 
@@ -77,7 +80,7 @@ export default function HomePage() {
                 </div>
                 <div className="px-6 mt-4 relative z-10">
                     <p className="text-white font-bold leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-[0_8px_12px_rgba(0,0,0,0.5)] text-left md:text-center md:my-10 lg:whitespace-nowrap">
-                        <span className="text-[#FFAA01]">Hungry?</span> We’re on the way!
+                        <span className="text-[#FFAA01]">Hungry?</span> We're on the way!
                     </p>
                 </div>
                 <div className="pb-8 mt-4 md:pb-12 relative z-10">
@@ -87,17 +90,16 @@ export default function HomePage() {
                             alt="SabaFood Promo"
                             width={1200}
                             height={600}
-                            className="rounded-2xl w-full max-w-[95%] sm:max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto object-cover shadow-lg transition-all duration-500"
+                            className="rounded-2xl w-full max-w-[95%] sm:max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto object-cover shadow-lg transition-all duration-700 ease-in-out"
                         />
 
                         <div className="absolute -bottom-6 w-full flex justify-center space-x-2">
                             {banners.map((_, i) => (
                                 <button
                                     key={i}
+                                    aria-label={`Go to banner ${i + 1}`}
                                     onClick={() => setActiveBanner(i)}
-                                    className={`w-2 h-2 rounded-full transition-colors ${
-                                        activeBanner === i ? "bg-[#f9b233]" : "bg-white/60"
-                                    }`}
+                                    className={`w-2 h-2 rounded-full ${activeBanner === i ? "bg-[#f9b233]" : "bg-white/60"}`}
                                 />
                             ))}
                         </div>
@@ -138,9 +140,12 @@ export default function HomePage() {
                     </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {restaurants.map((resto, i) => (
-                            <RestaurantCard key={i} {...resto} />
-                        ))}
+                        {!restaurants.length ? (
+                            <p className="text-center text-gray-500">Loading restaurants...</p>
+                        ) : (
+                            restaurants.map((resto) => <RestaurantCard key={resto.id} {...resto} />)
+                        )}
+
                     </div>
 
                 </div>
@@ -150,7 +155,6 @@ export default function HomePage() {
         </div>
     )
 }
-
 
 function Shortcut({ icon, label }) {
     return (
@@ -163,29 +167,32 @@ function Shortcut({ icon, label }) {
     )
 }
 
-function RestaurantCard({ name, categories, rating, delivery, distance, img }) {
+function RestaurantCard({ id, name, categories, rating, delivery, distance, img }) {
     return (
-        <button className="w-full text-left flex items-center md:items-start space-x-3 md:space-x-4 mb-4 bg-white rounded-xl p-4 md:p-5 shadow-md cursor-pointer active:scale-[0.99]">
-            <Image
-                src={img}
-                alt={name}
-                width={100}
-                height={100}
-                className="rounded-lg object-cover md:w-28 md:h-28"
-            />
-            <div className="flex flex-col flex-1">
-                <h3 className="font-semibold text-base md:text-lg text-gray-800">{name}</h3>
-                <p className="text-xs md:text-sm text-gray-500">{categories}</p>
-                <div className="mt-2 flex items-center gap-2">
-                    <Stars />
-                    <span className="text-sm md:text-base font-semibold text-gray-700">{rating}</span>
-                </div>
-                <div className="border-b border-gray-200 my-2" />
-                <div className="text-xs md:text-sm text-gray-500 mt-1">
-                    Delivery in {delivery} <span className="mx-1">•</span> {distance}
+        <Link href={`/sabafood/restaurant/${id}`} className="block">
+            <div className="w-full text-left flex items-center md:items-start space-x-3 md:space-x-4 mb-4 bg-white rounded-xl p-4 md:p-5 shadow-md cursor-pointer active:scale-[0.99] transition-transform hover:shadow-lg">
+                <Image
+                    src={img}
+                    alt={name}
+                    width={100}
+                    height={100}
+                    className="rounded-lg object-cover md:w-28 md:h-28"
+                    loading="lazy"
+                />
+                <div className="flex flex-col flex-1">
+                    <h3 className="font-semibold text-base md:text-lg text-gray-800">{name}</h3>
+                    <p className="text-xs md:text-sm text-gray-500">{categories}</p>
+                    <div className="mt-2 flex items-center gap-2">
+                        <Stars />
+                        <span className="text-sm md:text-base font-semibold text-gray-700">{rating}</span>
+                    </div>
+                    <div className="border-b border-gray-200 my-2" />
+                    <div className="text-xs md:text-sm text-gray-500 mt-1">
+                        Delivery in {delivery} <span className="mx-1">•</span> {distance}
+                    </div>
                 </div>
             </div>
-        </button>
+        </Link>
     )
 }
 
@@ -208,7 +215,7 @@ function NavItem({ href, icon, label, active }) {
         <Link href={href} className="cursor-pointer">
             <div className="relative flex flex-col items-center text-[11px] font-medium">
                 {active && (
-                <span className="absolute -top-2 w-1.5 h-1.5 rounded-full bg-[#103051]" />
+                    <span className="absolute -top-2 w-1.5 h-1.5 rounded-full bg-[#103051]" />
                 )}
                 <div className={active ? "text-[#103051]" : "text-gray-400"}>{icon}</div>
                 <span className={active ? "text-[#103051]" : "text-gray-400"}>{label}</span>

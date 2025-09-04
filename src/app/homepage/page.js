@@ -1,9 +1,9 @@
-import { Mail, LogOut, Plus, History, Eye, Utensils, Home, Shirt, Waves, Badge, Moon, Star, Flag, Car, Info } from "lucide-react";
-import BottomNav from "@/app/components/BottomNav";
+import { Mail, LogOut, Plus, History, Eye, Utensils, Home, Shirt, Waves, Badge, Moon, Star, Flag, Car, Info, Link } from "lucide-react";
+import BottomNav from "@/components/BottomNav";
 
 const services = [
-  { name: "SabaFood", icon: <Utensils className="w-10 h-10 text-amber-500" /> },
-  { name: "SabaWash", icon: <Shirt className="w-10 h-10 text-amber-500" /> },
+  { name: "SabaFood", icon: <Utensils className="w-10 h-10 text-amber-500" />, link: "/sabafood" },
+  { name: "SabaWash", icon: <Shirt className="w-10 h-10 text-amber-500" />, link: "/sabawash" },
 
   // Custom kombinasi untuk SabaPray
   { 
@@ -23,12 +23,13 @@ const services = [
         stroke="none" 
       />
     </div>
-  ) 
+  ),
+  link: "/sabapray" 
 },
 
-  { name: "SabaGuide", icon: <Flag className="w-10 h-10 text-amber-500" /> },
-  { name: "SabaDrive", icon: <Car className="w-10 h-10 text-amber-500" /> },
-  { name: "SabaInfo", icon: <Info className="w-10 h-10 text-amber-500" /> },
+  { name: "SabaGuide", icon: <Flag className="w-10 h-10 text-amber-500" />, link: "/sabaguide" },
+  { name: "SabaDrive", icon: <Car className="w-10 h-10 text-amber-500" />, link: "/sabadrive" },
+  { name: "SabaInfo", icon: <Info className="w-10 h-10 text-amber-500" />, link: "/sabainfo" },
 ];
 
 const cards = [

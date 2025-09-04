@@ -1,6 +1,6 @@
 "use client"
 
-import { X, MessageCircle, Info, User, Settings } from "lucide-react"
+import { X, MessageCircle, Info, Settings } from "lucide-react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 
@@ -15,7 +15,7 @@ export default function Header({
   const router = useRouter()
 
   return (
-    <header className="flex items-center justify-between px-4 py-3 bg-white shadow-lg">
+    <header className="sticky top-0 z-50 flex items-center justify-between px-4 py-3 bg-white shadow-lg">
       <div className="flex items-center space-x-3">
         <button
           onClick={() => router.back()}
@@ -26,8 +26,8 @@ export default function Header({
         <div className="flex flex-col leading-tight">
           <span className="text-[11px] text-gray-500">Your Location</span>
           <span className="text-sm font-semibold text-[#0f2f51] line-clamp-1 max-w-[260px]">
-          {location}
-        </span>
+            {location}
+          </span>
         </div>
       </div>
 
