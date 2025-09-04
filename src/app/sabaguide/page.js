@@ -18,6 +18,7 @@ import {
   Video,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function SabaGuidePage() {
   // Banner auto-rotate just to keep the page lively
@@ -249,17 +250,26 @@ function FeaturedCard({ title, country, rating, image, active }) {
 }
 
 function MostVisitedCard({ title, country, rating, price, image, bookmarked, onToggle }) {
+  const router = useRouter();
+
+  const handleCardClick = () => {
+    const slug = title.toLowerCase().replace(/\s+/g, "-");
+    router.push(`/sabaguide/profile/${slug}`);
+  };
+
+  const handleBookmarkClick = (e) => {
+    e.stopPropagation(); // jangan ikut navigate
+    onToggle();
+  };
+
   return (
-      <div className="relative bg-white rounded-2xl shadow-md flex gap-2 items-start w-full h-30 break-words">
-        <div className="relative w-20 h-30 rounded-xl overflow-hidden flex-shrink-0">
-          <Image
-            src={image}
-            alt={title}
-            fill
-            className="object-cover"
-            sizes="80px"
-          />
-        </div>
+    <div
+      onClick={handleCardClick}
+      className="relative bg-white rounded-2xl shadow-md flex gap-2 items-start w-full h-30 break-words cursor-pointer hover:bg-gray-50 active:scale-[0.99] transition"
+    >
+      <div className="relative w-20 h-30 rounded-xl overflow-hidden flex-shrink-0">
+        <Image src={image} alt={title} fill className="object-cover" sizes="80px" />
+      </div>
 
       <div className="flex-1 pl-1 pr-3 py-2">
         <h4 className="font-semibold text-gray-900 leading-snug">{title}</h4>
@@ -278,7 +288,14 @@ function MostVisitedCard({ title, country, rating, price, image, bookmarked, onT
 
         <div className="mt-1 flex items-center justify-between">
           <span className="text-[#103051] font-bold">{"$" + price}</span>
-          <button className="px-3 py-1.5 rounded-xl bg-[#DD8E23] text-[#FFFFFF] text-sm shadow hover:brightness-95">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              const slug = title.toLowerCase().replace(/\s+/g, "-");
+              router.push(`/sabaguide/profile/${slug}`);
+            }}
+            className="px-3 py-1.5 rounded-xl bg-[#DD8E23] text-[#FFFFFF] text-sm shadow hover:brightness-95"
+          >
             Book Now
           </button>
         </div>
@@ -286,7 +303,7 @@ function MostVisitedCard({ title, country, rating, price, image, bookmarked, onT
 
       {/* save */}
       <button
-        onClick={onToggle}
+        onClick={handleBookmarkClick}
         className="absolute top-3 right-3 bg-white/95 p-1.5 rounded-full shadow transition-colors"
         aria-label={bookmarked ? "Remove bookmark" : "Add bookmark"}
         aria-pressed={bookmarked}
