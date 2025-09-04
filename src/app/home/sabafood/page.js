@@ -15,7 +15,7 @@ import {
 import Image from "next/image"
 import { useState, useEffect } from "react"
 
-export default function HomePage() {
+export default function SabaFoodPage() {
     const [activeBanner, setActiveBanner] = useState(0)
 
     const banners = [
@@ -169,7 +169,7 @@ function Shortcut({ icon, label }) {
 
 function RestaurantCard({ id, name, categories, rating, delivery, distance, img }) {
     return (
-        <Link href={`/sabafood/restaurant/${id}`} className="block">
+        <Link href={`/home/sabafood/restaurant/${id}`} className="block">
             <div className="w-full text-left flex items-center md:items-start space-x-3 md:space-x-4 mb-4 bg-white rounded-xl p-4 md:p-5 shadow-md cursor-pointer active:scale-[0.99] transition-transform hover:shadow-lg">
                 <Image
                     src={img}

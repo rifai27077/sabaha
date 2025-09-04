@@ -105,7 +105,7 @@ export default function RestaurantDetail() {
 
             {totalItems > 0 && (
                 <div
-                    onClick={() => router.push("order-summary")}
+                    onClick={() => router.push("/home/sabafood/restaurant/order-summary")}
                     className="fixed bottom-6 left-6 right-6 md:left-1/4 md:right-1/4 lg:left-1/3 lg:right-1/3 z-[999]"
                 >
                     <button className="w-full bg-[#103051] text-white py-3 md:py-4 px-6 rounded-full flex items-center justify-between shadow-lg hover:bg-[#0c2742] transition-colors">

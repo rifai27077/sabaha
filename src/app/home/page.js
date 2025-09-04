@@ -1,13 +1,16 @@
+"use client"
+
 import { Mail, LogOut, Plus, History, Eye, Utensils, Home, Shirt, Waves, Badge, Moon, Star, Flag, Car, Info } from "lucide-react";
-import BottomNav from "@/app/components/BottomNav";
+import Navigation from "@/components/Navigation";
+import Link from "next/link"
 
 const services = [
-  { name: "SabaFood", icon: <Utensils className="w-10 h-10 text-amber-500" /> },
-  { name: "SabaWash", icon: <Shirt className="w-10 h-10 text-amber-500" /> },
+  { name: "SabaFood", href: "/home/sabafood", icon: <Utensils className="w-10 h-10 text-amber-500" /> },
+  { name: "SabaWash", href: "/home/sabawash", icon: <Shirt className="w-10 h-10 text-amber-500" /> },
 
   // Custom kombinasi untuk SabaPray
   { 
-  name: "SabaPray", 
+  name: "SabaPray", href: "/home/sabapray",
   icon: (
     <div className="relative w-10 h-10 flex items-center justify-center">
       <Badge className="w-10 h-10 text-amber-500" fill="currentColor" />
@@ -26,10 +29,10 @@ const services = [
   ) 
 },
 
-  { name: "SabaGuide", icon: <Flag className="w-10 h-10 text-amber-500" /> },
-  { name: "SabaDrive", icon: <Car className="w-10 h-10 text-amber-500" /> },
-  { name: "SabaInfo", icon: <Info className="w-10 h-10 text-amber-500" /> },
-];
+  { name: "SabaGuide", href: "/home/sabaguide", icon: <Flag className="w-10 h-10 text-amber-500" /> },
+  { name: "SabaDrive", href: "/home/sabadrive", icon: <Car className="w-10 h-10 text-amber-500" /> },
+  { name: "SabaInfo",  href: "/home/sabainfo",  icon: <Info className="w-10 h-10 text-amber-500" /> },
+]
 
 const cards = [
   {
@@ -150,16 +153,18 @@ export default function Homepage() {
 
         <div className="flex items-center justify-center bg-white">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 w-full">
-            {services.map((item, i) => (
-              <div 
-                key={i} 
-                className="flex flex-col items-center justify-center bg-white shadow-md rounded-2xl p-6 hover:shadow-lg transition w-full h-32"
+            {services.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="group flex flex-col items-center justify-center bg-white shadow-md rounded-2xl p-6 hover:shadow-lg active:scale-[0.98] transition w-full h-32 focus:outline-none"
+                aria-label={item.name}
               >
                 {item.icon}
-                <span className="mt-2 text-sm font-medium text-gray-700 text-center">
+                <span className="mt-2 text-sm font-medium text-gray-700 text-center group-hover:text-[#103051]">
                   {item.name}
                 </span>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -220,7 +225,7 @@ export default function Homepage() {
             ))}
           </div>
         </section>
-        <BottomNav />
+        <Navigation active="home" />
       </main>
     </div>
   );

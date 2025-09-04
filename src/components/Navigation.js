@@ -60,7 +60,7 @@ export default function Navigation({ active = "home" }) {
       height={35}
     />
   </button>
-  <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[11px] font-semibold text-black">
+  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-[11px] font-semibold text-black">
     SAHABA
   </div>
 </div>

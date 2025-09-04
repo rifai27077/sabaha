@@ -37,7 +37,6 @@ export default function UserWelcomePage() {
                     />
                 </div>
 
-
                 <div className="text-center lg:text-left">
                     <p className="text-gray-700 mb-2 text-sm md:text-base lg:text-lg">
                         Kemudahan, Kenyamanan, dan Keamanan Sudah Menunggu Anda!
