@@ -9,11 +9,10 @@ import {
   Eye,
   Plus,
   History,
-  Icon,
   WashingMachine,
   Shirt,
+  Sparkles,
 } from "lucide-react"
-import { ironingBoard } from "@lucide/lab"
 import Header from "@/components/Header"
 import Navigation from "@/components/Navigation"
 
@@ -49,7 +48,7 @@ export default function LaundryDetailPage() {
       case "clean":
         return <WashingMachine className="w-6 h-6" />
       case "iron":
-        return <Icon iconNode={ironingBoard} className="w-6 h-6" />
+        return <Sparkles className="w-6 h-6" />
       default:
         return <WashingMachine className="w-6 h-6" />
     }

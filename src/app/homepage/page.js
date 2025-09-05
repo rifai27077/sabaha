@@ -6,34 +6,33 @@ import Navigation from "@/components/Navigation";
 import Link from "next/link"
 
 const services = [
-  { name: "SabaFood", icon: <Utensils className="w-10 h-10 text-amber-500" />, link: "/sabafood" },
-  { name: "SabaWash", icon: <Shirt className="w-10 h-10 text-amber-500" />, link: "/sabawash" },
+  { name: "SabaFood", icon: <Utensils className="w-10 h-10 text-amber-500" />, href: "/sabafood" },
+  { name: "SabaWash", icon: <Shirt className="w-10 h-10 text-amber-500" />, href: "/sabawash" },
 
   // Custom kombinasi untuk SabaPray
-  { 
-  name: "SabaPray", href: "/home/sabapray",
-  icon: (
-    <div className="relative w-10 h-10 flex items-center justify-center">
-      <Badge className="w-10 h-10 text-amber-500" fill="currentColor" />
+  {
+    name: "SabaPray",
+    href: "/sabapray",
+    icon: (
+      <div className="relative w-10 h-10 flex items-center justify-center">
+        <Badge className="w-10 h-10 text-amber-500" fill="currentColor" />
+        <Moon
+          className="absolute w-6 h-6 text-white left-2 "
+          fill="currentColor"
+          stroke="none"
+        />
+        <Star
+          className="absolute w-3 h-3 text-white right-1.5 top-1.5"
+          fill="currentColor"
+          stroke="none"
+        />
+      </div>
+    ),
+  },
 
-      <Moon 
-        className="absolute w-6 h-6 text-white left-2 " 
-        fill="currentColor" 
-        stroke="none" 
-      />
-      <Star 
-        className="absolute w-3 h-3 text-white right-1.5 top-1.5" 
-        fill="currentColor" 
-        stroke="none" 
-      />
-    </div>
-  ),
-  link: "/sabapray" 
-},
-
-  { name: "SabaGuide", href: "/home/sabaguide", icon: <Flag className="w-10 h-10 text-amber-500" /> },
-  { name: "SabaDrive", href: "/home/sabadrive", icon: <Car className="w-10 h-10 text-amber-500" /> },
-  { name: "SabaInfo",  href: "/home/sabainfo",  icon: <Info className="w-10 h-10 text-amber-500" /> },
+  { name: "SabaGuide", href: "/sabaguide", icon: <Flag className="w-10 h-10 text-amber-500" /> },
+  { name: "SabaDrive", href: "/sabadrive", icon: <Car className="w-10 h-10 text-amber-500" /> },
+  { name: "SabaInfo", href: "/sabainfo", icon: <Info className="w-10 h-10 text-amber-500" /> },
 ]
 const cards = [
   {
@@ -157,7 +156,7 @@ export default function He() {
             {services.map((item) => (
               <Link
                 key={item.name}
-                href={item.href}
+                href={item.href ?? item.link ?? '#'}
                 className="group flex flex-col items-center justify-center bg-white shadow-md rounded-2xl p-6 hover:shadow-lg active:scale-[0.98] transition w-full h-32 focus:outline-none"
                 aria-label={item.name}
               >

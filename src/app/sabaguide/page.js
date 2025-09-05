@@ -87,9 +87,7 @@ export default function SabaGuidePage() {
     <div className="min-h-screen bg-white flex flex-col">
       <Header location="Pullman Hotel Zam-Zam Tower" showChat />
 
-      {/* TOP/HERO */}
       <section className="relative bg-gradient-to-t from-[#103051] via-[#103051]/100 to-white/0 pb-6">
-        {/* Safe gradient overlay similar to the mock */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#103051] via-[##FFFFFF]/85 to-transparent [50%] sm:h-[55%] md:h-[60%]" />
                 
         {/* Search */}
@@ -114,7 +112,6 @@ export default function SabaGuidePage() {
           </h1>
         </div>
 
-        {/* Featured horizontal cards (two visible like screenshot) */}
         <div className="mt-4 px-6 relative z-10">
           <div className="flex gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory">
             {featured.map((item, i) => (
@@ -212,6 +209,7 @@ function Category({ Icon, label }) {
 
 function FeaturedCard({ title, country, rating, image, active }) {
   return (
+
     <div className="relative snap-start flex-shrink-0 w-[68%] sm:w-[320px] aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
       <Image
         src={image}

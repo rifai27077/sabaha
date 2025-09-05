@@ -3,7 +3,7 @@
 import Image from "next/image";
 import BottomNav from "@/components/BottomNav";
 import { ArrowLeft, MessageCircle, Settings, Search, MapPin, Star, Bookmark } from "lucide-react";
-import { useState } from "react";
+import { use, useState } from "react";
 import { useRouter } from "next/navigation";
 
 const PLACES = {
@@ -44,7 +44,9 @@ const PLACES = {
 
 export default function Page({ params }) {
   const router = useRouter();
-  const slug = params?.slug || "jabal-uhud";
+  // Next.js 15: unwrap the framework-provided params Promise directly
+  const resolvedParams = use(params);
+  const slug = resolvedParams?.slug ?? "jabal-uhud";
   const place = PLACES[slug] ?? PLACES["jabal-uhud"];
   const [bookmarkedSet, setBookmarkedSet] = useState(new Set());
 

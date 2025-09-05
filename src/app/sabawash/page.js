@@ -9,11 +9,9 @@ import {
   Shirt,
   Droplet,
   Star,
-  Icon,
-  MapPin,
   Clock,
+  Sparkles,
 } from "lucide-react"
-import { ironingBoard } from '@lucide/lab';
 import Image from "next/image"
 import { useState, useEffect } from "react"
 
@@ -121,7 +119,7 @@ export default function SabaWashPage() {
             <Shortcut icon={<WashingMachine className="w-6 h-6" />} label="Simply" />
             <Shortcut icon={<Droplet className="w-6 h-6" />} label="Clean" />
             <Shortcut icon={<Shirt className="w-6 h-6" />} label="Wash" />
-            <Shortcut icon={<Icon iconNode={ironingBoard} className="w-6 h-6" />} label="Iron" />
+            <Shortcut icon={<Sparkles className="w-6 h-6" />} label="Iron" />
           </div>
         </div>
 
