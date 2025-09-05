@@ -201,7 +201,8 @@ export default function LaundryDetailPage() {
           "
         >
           {laundry.services.map((s) => (
-            <div
+            <button
+              onClick={() => router.push(`/sabawash/laundry/${s.key}`)}
               key={s.key}
               className="flex flex-col items-center bg-white rounded-xl p-4 shadow-xl w-full hover:scale-105 transition-transform"
             >
@@ -211,7 +212,7 @@ export default function LaundryDetailPage() {
               <span className="mt-3 text-sm md:text-base text-gray-700">
                 {s.label}
               </span>
-            </div>
+            </button>
           ))}
         </div>
       </div>

@@ -8,14 +8,15 @@ import {
     Search,
     Droplet,
     Icon,
-    WashingMachine
+    WashingMachine,
+    Shirt
 } from "lucide-react"
 import { ironingBoard } from "@lucide/lab"
 import Header from "@/components/Header"
 import Navigation from "@/components/Navigation"
 import { useOrder } from "@/context/SabawashCheckout"
 
-export default function CleanPage() {
+export default function SimplyPage() {
     const router = useRouter()
     const { setOrder } = useOrder()
 
@@ -84,8 +85,8 @@ export default function CleanPage() {
         }
 
         setOrder({
-            serviceKey: "clean",
-            service: selectedService?.name || "Clean",
+            serviceKey: "simply",
+            service: selectedService?.name || "Simply",
             weight: `${weight} Kg`,
             date: `${dates[activeDate].day}, ${dates[activeDate].date} ${dates[activeDate].month}`,
             time: time[activeTimeSlot].range,
@@ -122,8 +123,8 @@ export default function CleanPage() {
                 {/* Hero text */}
                 <div className="px-6 mt-6 relative z-10">
                     <p className="text-white font-bold leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-[0_8px_12px_rgba(0,0,0,0.5)] text-left md:text-center md:my-10 lg:whitespace-nowrap">
-                        Where Every Wash Fells{" "}
-                        <span className="text-[#1DA1F2]">New</span>.
+                        Making Laundry Simple and Fresh{" "}
+                        <span className="text-[#1DA1F2]">Every Day</span>!
                     </p>
                 </div>
 
@@ -159,9 +160,9 @@ export default function CleanPage() {
                     <div className="bg-white rounded-2xl border border-gray-200 shadow-lg p-4 md:p-6">
                         <div className="flex items-start gap-3">
                             <div className="w-12 h-12 rounded-lg bg-[#fff7ec] flex flex-col items-center justify-center">
-                                <WashingMachine className="w-5 h-5 text-[#DD8E23]" />
+                                <Shirt className="w-5 h-5 text-[#DD8E23]" />
                                 <span className="text-[11px] text-[#DD8E23] font-semibold mt-1">
-                                    Clean
+                                    Simply
                                 </span>
                             </div>
                             <div className="flex-1 grid gap-3 md:grid-cols-2">
@@ -195,8 +196,8 @@ export default function CleanPage() {
                                     key={idx}
                                     onClick={() => setActiveDate(idx)}
                                     className={`min-w-[82px] text-left rounded-lg border 
-                                    ${active ? "bg-[#FF8A00] text-white" : "bg-white text-gray-800"} 
-                                    px-4 py-3 shadow-sm`}
+                        ${active ? "bg-[#FF8A00] text-white" : "bg-white text-gray-800"} 
+                        px-4 py-3 shadow-sm`}
                                 >
                                     <div className="text-xs">{d.day}</div>
                                     <div className="text-lg font-bold leading-tight">{d.date}</div>
