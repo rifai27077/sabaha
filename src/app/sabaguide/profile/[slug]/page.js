@@ -1,10 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import BottomNav from "@/components/BottomNav";
-import { ArrowLeft, MessageCircle, Settings, Search, MapPin, Star, Bookmark } from "lucide-react";
+import TopNavAndSearch from "@/components/TopNavAndSearch";
+import Header from "@/components/Header";
+import { Search, MapPin, Star, Bookmark } from "lucide-react";
 import { use, useState } from "react";
 import { useRouter } from "next/navigation";
+import Navigation from "@/components/Navigation";
 
 const PLACES = {
   "jabal-uhud": {
@@ -44,7 +46,6 @@ const PLACES = {
 
 export default function Page({ params }) {
   const router = useRouter();
-  // Next.js 15: unwrap the framework-provided params Promise directly
   const resolvedParams = use(params);
   const slug = resolvedParams?.slug ?? "jabal-uhud";
   const place = PLACES[slug] ?? PLACES["jabal-uhud"];
@@ -137,47 +138,8 @@ export default function Page({ params }) {
 
         </div>
       </section>
-      <BottomNav />
+      <Navigation />
     </div>
-  );
-}
-
-function TopNavAndSearch() {
-  const router = useRouter();
-
-  return (
-    <section className="relative bg-white pb-4">
-      {/* Nav bar */}
-      <div className=" px-4 py-2 flex items-center justify-between">
-        <button
-          onClick={() => router.back()}
-          className="p-2 rounded-full hover:bg-gray-100 transition"
-          aria-label="Back"
-        >
-          <ArrowLeft className="w-5 h-5 text-gray-700" />
-        </button>
-
-        <div className="flex items-center">
-          <Image
-            src="/images/logo.png"
-            alt="SAHABA"
-            width={120}
-            height={24}
-            className="object-contain"
-            priority
-          />
-        </div>
-
-        <div className="flex items-center gap-2">
-          <button className="p-2 rounded-full hover:bg-white/10 transition" aria-label="Chat">
-            <MessageCircle className="w-5 h-5 text-[#103051]" />
-          </button>
-          <button className="p-2 rounded-full hover:bg-white/10 transition" aria-label="Settings">
-            <Settings className="w-5 h-5 text-[#103051]" />
-          </button>
-        </div>
-      </div>
-    </section>
   );
 }
 

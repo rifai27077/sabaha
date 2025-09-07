@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Header from "@/components/Header";
-import BottomNav from "@/components/BottomNav";
+import Navigation from "@/components/Navigation";
 import {
   Search,
   Percent,
@@ -187,7 +187,7 @@ export default function SabaGuidePage() {
           </div>
         </div>
       </section>
-      <BottomNav />
+      <Navigation />
     </div>
   );
 }

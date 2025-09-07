@@ -69,11 +69,11 @@ export default function He() {
          {/* Navigation */}
         <nav className="flex items-center gap-4 md:gap-8 text-sm md:text-base">
           <a href="#" className="flex flex-col items-center gap-1 md:gap-2 text-white no-underline hover:text-gray-200">
-            <Mail size={25} className="md:w-5 md:h-5" /><span className="text-sm md:text-lg lg:text-xl">Pesan</span>
+            <Mail size={200} className="md:w-5 md:h-5" /><span className="text-sm md:text-lg lg:text-xl">Pesan</span>
           </a>
 
           <a href="#" className="flex flex-col items-center gap-1 md:gap-2 text-white no-underline hover:text-gray-200">
-            <LogOut size={25} className="md:w-5 md:h-5" /><span className="text-sm md:text-lg lg:text-xl">Keluar</span>
+            <LogOut size={10} className="md:w-5 md:h-5" /><span className="text-sm md:text-lg lg:text-xl">Keluar</span>
           </a>
         </nav> 
       </header>
