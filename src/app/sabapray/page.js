@@ -78,7 +78,7 @@ export default function SabaPrayPage() {
           <div className="grid grid-cols-3 gap-4 mt-4">
             <FeatureCard label="Muthowwif" variant="sparkles" href="/sabapray/muthowwif" />
             <FeatureCard label="Partner" variant="users" href="/sabapray/partner"/>
-            <FeatureCard label="Support" variant="lifebuoy" />
+            <FeatureCard label="Support" variant="lifebuoy" href="/sabapray/support"/>
           </div>
         </div>
 

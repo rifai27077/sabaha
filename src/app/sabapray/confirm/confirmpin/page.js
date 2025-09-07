@@ -23,7 +23,7 @@ export default function ConfirmPinPage() {
 
   const handleSubmit = () => {
     if (pin.length === 6) {
-      router.push("/sabapray/muthowwif/confirm/success") // Navigate to success page
+      router.push("/sabapray/confirm/success") // Navigate to success page
     }
   }
 

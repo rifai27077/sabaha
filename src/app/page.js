@@ -4,6 +4,7 @@ import { Mail, LogOut, Plus, History, Eye, Utensils, Shirt, Badge, Moon, Star, F
 import Navigation from "@/components/Navigation";
 import Link from "next/link"
 import Image from "next/image";
+import { useState } from "react";
 
 const services = [
   { name: "SabaFood", icon: <Utensils className="w-10 h-10 text-amber-500" />, href: "/sabafood" },
@@ -41,25 +42,35 @@ const cards = [
     title: "Keutamaan Shalat di Masjidil Haram dan Masjid Nabawi",
     desc: "Pahala berlipat dalam satu rakaat. Kenali keistimewaan dua masjid suci ini dan adab saat beribadah di dalamnya.",
     img: "/images/card-informasi-1.png",
+    category: "Ibadah"
   },
   {
     title: "Tips Sehat dan Aman Selama Ibadah Umrah di Musim Panas",
     desc: "Musim panas di Arab Saudi bisa mencapai 45°C. Berikut panduan agar jamaah tetap sehat dan nyaman saat beribadah.",
     img: "/images/card-informasi-2.png",
+    category: "Jama'ah"
   },
   {
     title: "Barang Bawaan yang Dilarang Masuk ke Area Masjidil Haram dan Nabawi",
     desc: "Agar tidak tertahan di gerbang, kenali barang yang tidak diperbolehkan saat memasuki dua masjid suci.",
     img: "/images/card-informasi-3.jpg",
+    category: "Aturan"
   },
   {
     title: "Gunakan Layanan Sahaba untuk Kebutuhan Harian Jamaah di Tanah Suci",
     desc: "Dari antar makanan hingga panduan ibadah, Sahaba hadir sebagai sahabat setia jamaah Indonesia di Makkah & Madinah.",
     img: "/images/card-informasi-4.jpg",
+    category: "Layanan"
   },
 ];
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState("Semua");
+
+  const filteredCards = activeTab === "Semua"
+    ? cards
+    : cards.filter((card) => card.category === activeTab);
+
   return (
      <div className="bg-gradient-to-b from-[#103051] to-[#1e4d7b] min-h-screen">
       {/* Header */}
@@ -72,7 +83,7 @@ export default function Home() {
 
          {/* Navigation */}
         <nav className="flex items-center gap-4 md:gap-8 text-sm md:text-base">
-          <a href="#" className="flex flex-col items-center gap-1 md:gap-2 text-white no-underline hover:text-gray-200">
+          <a href="" className="flex flex-col items-center gap-1 md:gap-2 text-white no-underline hover:text-gray-200">
             <Mail size={25} className="md:w-5 md:h-5" /><span className="text-sm md:text-lg lg:text-xl">Pesan</span>
           </a>
 
@@ -97,7 +108,7 @@ export default function Home() {
                     {/* Kiri: Foto + Sapaan */}
                     <div className="flex items-center gap-2">
                         {/* remote image: gunakan <img> bila belum menambahkan domain di next.config.js */}
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profil" className="w-12 h-12 rounded-full object-cover"/>
+                        <img src="/images/profile.png" alt="Profil" className="w-12 h-12 rounded-full object-cover"/>
 
                         <div>
                             <div className="font-light text-black text-lg">
@@ -174,20 +185,17 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Informasi Tanah Suci */}
-          <div className="mb-6 mt-6">
-            {/* Judul */}
-            <h2 className="font-bold text-lg text-gray-900 mb-3">
-              Informasi Tanah Suci
-            </h2>
+       <div className="mb-6 mt-6">
+            <h2 className="font-bold text-lg text-gray-900 mb-3">Informasi Tanah Suci</h2>
 
             {/* Tabs */}
             <div className="flex gap-2 overflow-x-auto no-scrollbar">
-              {['Semua', 'Ibadah', "Jama'ah", 'Aturan', 'Layanan'].map((tab, i) => (
+              {['Semua', 'Ibadah', "Jama'ah", 'Aturan', 'Layanan'].map((tab) => (
                 <button
                   key={tab}
+                  onClick={() => setActiveTab(tab)}
                   className={`flex-shrink-0 px-5 py-2 rounded-full border font-medium text-base transition-colors duration-200 ${
-                    i === 0
+                    activeTab === tab
                       ? 'border-blue-500 bg-blue-50 text-blue-600'
                       : 'border-gray-300 text-gray-700 bg-white hover:bg-gray-100'
                   }`}
@@ -198,35 +206,16 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Card Informasi */}
-           <div className="flex flex-col gap-4">
-            {cards.map((item, i) => (
+         {/* Card Informasi */}
+          <div className="flex flex-col gap-4">
+            {filteredCards.map((item, i) => (
               <div key={i} className="flex items-center gap-4 bg-white rounded-2xl shadow-md p-4">
-                {/* Thumbnail */}
-                <Image
-                  src={item.img}
-                  alt={item.title}
-                  width={80}
-                  height={80}
-                  className="rounded-lg object-cover flex-shrink-0"
-                />
-
-                {/* Text content */}
+                <Image src={item.img} alt={item.title} width={80} height={80} className="rounded-lg object-cover flex-shrink-0" />
                 <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900 text-sm md:text-base">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 text-xs md:text-sm mt-1 line-clamp-2">
-                    {item.desc}
-                  </p>
+                  <h3 className="font-semibold text-gray-900 text-sm md:text-base">{item.title}</h3>
+                  <p className="text-gray-600 text-xs md:text-sm mt-1 line-clamp-2">{item.desc}</p>
                 </div>
-
-                {/* Link */}
-                <a
-                  href="#"
-                  className="text-blue-500 text-sm font-medium whitespace-nowrap">
-                  Lihat &gt;
-                </a>
+                <a href="#" className="text-blue-500 text-sm font-medium whitespace-nowrap">Lihat &gt;</a>
               </div>
             ))}
           </div>

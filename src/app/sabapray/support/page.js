@@ -13,7 +13,8 @@ export default function MuthowwifPage() {
     { id: "umroh-set", name: "Umroh Set", subtitle: "3-4 Hours", priceLabel: "SAR 200", group: "Set" },
     { id: "tawaf", name: "Tawwaf", subtitle: "1 Hours", priceLabel: "SAR 95", group: "All" },
     { id: "sai", name: "Sa’i", subtitle: "1 Hours", priceLabel: "SAR 115", group: "All" },
-    { id: "others", name: "Others", subtitle: "Custom Your Pray With Us", priceLabel: "SAR 15 - 100", group: "Custom" },
+    { id: "daily", name: "Daily", subtitle: "24 hours", priceLabel: "SAR 200", group: "Custom" },
+    { id: "wheelchair", name: "Wheel Chair Only", subtitle: "Custom times", priceLabel: "SAR 200", group: "Custom" },
   ]
 
   const filtered = services.filter(s => {

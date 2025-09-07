@@ -32,7 +32,7 @@ export default function SabaWashPage() {
       time: "Max. 3 Hours",
       distance: "1.0 km",
       reviews: 190,
-      img: "/images/sabawash/laundry1.jpg",
+      img: "/images/sabawash/sofwah.png",
     },
     {
       id: "bihl-laundry",
@@ -41,7 +41,7 @@ export default function SabaWashPage() {
       time: "Max. 2.5 Hours",
       distance: "0.9 km",
       reviews: 90,
-      img: "/images/sabawash/laundry2.jpg",
+      img: "/images/sabawash/bihl.jpg",
     },
     {
       id: "champion-cleaners",
@@ -50,7 +50,7 @@ export default function SabaWashPage() {
       time: "Max. 2 Hours",
       distance: "1.5 km",
       reviews: 183,
-      img: "/images/sabawash/laundry3.jpg",
+      img: "/images/sabawash/champion.png",
     },
   ]
 
