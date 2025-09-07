@@ -99,7 +99,7 @@ export default function LaundryDetailPage() {
             {/* left: profile */}
             <div className="flex items-center gap-3">
               <img
-                src="https://randomuser.me/api/portraits/men/32.jpg"
+                src="/images/profile.png"
                 width={48}
                 height={48}
                 alt="Profil"

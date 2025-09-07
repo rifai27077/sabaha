@@ -4,6 +4,7 @@
 import Image from "next/image"
 import Header from "@/components/Header"
 import Navigation from "@/components/Navigation"
+import Link from "next/link"
 
 export default function PaymentSuccessPage() {
   return (
@@ -25,11 +26,13 @@ export default function PaymentSuccessPage() {
             Your booking has been placed sent to Md. Sharif Ahmed
           </p>
 
+          <Link href="/sabapray/check-order">
           <button
             className="w-full bg-[#1e4d7b] text-white font-semibold py-3 rounded-xl shadow-md active:scale-[0.99] animate-fadeIn"
           >
             Check My Order
           </button>
+          </Link>
         </div>
       </section>
 
