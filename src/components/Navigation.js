@@ -7,16 +7,18 @@ import { Home, Wallet, Clock, User } from "lucide-react"
 function NavItem({ href, icon, label, active }) {
   return (
     <Link href={href} className="cursor-pointer flex-1">
-      <div className="relative flex flex-col items-center text-[11px] font-medium transition-colors">
-        <div className={active ? "text-[#103051]" : "text-gray-400"}>
+      <div className="relative flex flex-col items-center text-[11px] font-medium">
+        <div
+          className={`transition-colors ${
+            active ? "text-[#103051]" : "text-gray-400 hover:text-[#103051]"
+          }`}
+        >
           {icon}
         </div>
         <span
-          className={
-            active
-              ? "text-[#103051] font-semibold"
-              : "text-gray-400 font-normal"
-          }
+          className={`transition-colors ${
+            active ? "text-[#103051] font-semibold" : "text-gray-400 hover:text-[#103051]"
+          }`}
         >
           {label}
         </span>
@@ -47,23 +49,23 @@ export default function Navigation({ active = "home" }) {
       />
 
       {/* FAB SAHABA */}
-      <div className="relative -translate-y-4 flex flex-col items-center">
-  <button
-    onClick={() => {}}
-    className="bg-[#103051] border-4 border-white text-white p-3 rounded-full shadow-xl cursor-pointer transition-transform hover:scale-105"
-    aria-label="SAHABA"
-  >
-    <Image
-      src="/images/sahaba-logo.png"
-      alt="SAHABA"
-      width={35}
-      height={35}
-    />
-  </button>
-  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-[11px] font-semibold text-black">
-    SAHABA
-  </div>
-</div>
+      <div className="relative -translate-y-6 flex flex-col items-center">
+        <button
+          onClick={() => {}}
+          className="bg-[#103051] border-4 border-white text-white p-3 rounded-full shadow-xl cursor-pointer transition-transform hover:scale-105"
+          aria-label="SAHABA"
+        >
+          <Image
+            src="/images/sahaba-logo.png"
+            alt="SAHABA"
+            width={35}
+            height={35}
+          />
+        </button>
+        <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-[11px] font-semibold text-black">
+          SAHABA
+        </div>
+      </div>
 
       <NavItem
         href="/history"

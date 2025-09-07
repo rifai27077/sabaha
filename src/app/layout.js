@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { BasketProvider } from "@/context/BasketContext";
 import { SabawashProvider } from "@/context/SabawashCheckout";
+import { RideProvider } from "@/context/RideContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +27,9 @@ export default function RootLayout({ children }) {
       >
         <SabawashProvider>
           <BasketProvider>
-            {children}
+            <RideProvider>
+              {children}
+            </RideProvider>
           </BasketProvider>
         </SabawashProvider>
       </body>

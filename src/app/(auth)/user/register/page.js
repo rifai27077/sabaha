@@ -71,7 +71,7 @@ export default function UserRegister() {
                             placeholder="Full name"
                             value={form.fullname}
                             onChange={handleChange}
-                            className="w-full h-12 sm:h-14 bg-gray-100 rounded-lg pl-4 pr-10 text-sm sm:text-base
+                            className="w-full h-12 sm:h-14 bg-gray-100 text-black rounded-lg pl-4 pr-10 text-sm sm:text-base
                                     focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-400"
                             required
                         />
@@ -85,7 +85,7 @@ export default function UserRegister() {
                             placeholder="Valid email"
                             value={form.email}
                             onChange={handleChange}
-                            className="w-full h-12 sm:h-14 bg-gray-100 rounded-lg pl-4 pr-10 text-sm sm:text-base
+                            className="w-full h-12 sm:h-14 bg-gray-100 text-black rounded-lg pl-4 pr-10 text-sm sm:text-base
                                     focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-400"
                             required
                         />
@@ -99,7 +99,7 @@ export default function UserRegister() {
                             placeholder="Phone number"
                             value={form.phone}
                             onChange={handleChange}
-                            className="w-full h-12 sm:h-14 bg-gray-100 rounded-lg pl-4 pr-10 text-sm sm:text-base
+                            className="w-full h-12 sm:h-14 bg-gray-100 text-black rounded-lg pl-4 pr-10 text-sm sm:text-base
                                     focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-400"
                             required
                         />
@@ -113,7 +113,7 @@ export default function UserRegister() {
                             placeholder="Strong Password"
                             value={form.password}
                             onChange={handleChange}
-                            className="w-full h-12 sm:h-14 bg-gray-100 rounded-lg pl-4 pr-10 text-sm sm:text-base
+                            className="w-full h-12 sm:h-14 bg-gray-100 text-black rounded-lg pl-4 pr-10 text-sm sm:text-base
                                     focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-400"
                             required
                         />
