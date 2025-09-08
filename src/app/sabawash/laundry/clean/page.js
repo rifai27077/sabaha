@@ -51,21 +51,21 @@ export default function CleanPage() {
             id: 1,
             name: "Jacket Suit",
             desc: "Clean, Fresh and Extra Treatment",
-            img: "/images/sabawash/add1.jpg",
+            img: "/images/sabawash/jacketSuit.png",
             eta: "Delivery in 15 min",
         },
         {
             id: 2,
             name: "Blanket",
             desc: "Clean, Fresh and Extra Treatment",
-            img: "/images/sabawash/add2.jpg",
+            img: "/images/sabawash/blanket.png",
             eta: "Delivery in 15 min",
         },
         {
             id: 3,
             name: "Shoes",
             desc: "Clean, Fresh and Extra Treatment",
-            img: "/images/sabawash/add3.jpg",
+            img: "/images/sabawash/shoes.png",
             eta: "Delivery in 15 min",
         },
     ]
@@ -278,7 +278,7 @@ export default function CleanPage() {
             <div className="max-w-4xl mx-auto px-4 mt-6">
                 <button
                     onClick={handleCheckout}
-                    className="w-full py-3 bg-[#103051] text-white rounded-lg font-semibold hover:bg-[#0c243e] transition"
+                    className="w-full p-3 bg-[#103051] text-white rounded-lg font-semibold hover:bg-[#0c243e] transition"
                 >
                     Proceed to Checkout
                 </button>

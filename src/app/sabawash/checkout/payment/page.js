@@ -183,9 +183,7 @@ export default function PaymentPage() {
         </section>
       </div>
 
-      {/* bottom fixed action + navigation */}
-      <div className="fixed left-0 right-0 bottom-0 z-40">
-        {/* button bar */}
+      <div className="fixed left-0 right-0 bottom-0 z-40 mb-3">
         <div className="max-w-3xl mx-auto px-4 pb-20">
           <button
             onClick={handleDone}
