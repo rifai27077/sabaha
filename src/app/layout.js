@@ -24,12 +24,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning={true}
       >
         <SabawashProvider>
           <BasketProvider>
-            <RideProvider>
-              {children}
-            </RideProvider>
+            <RideProvider>{children}</RideProvider>
           </BasketProvider>
         </SabawashProvider>
       </body>

@@ -27,32 +27,33 @@ export default function OnboardingPage() {
 
           /* Large desktop */
           lg:top-0 lg:left-0 lg:translate-x-0
-          lg:w-full lg:h-[60%] lg:rounded-none
+          lg:w-full lg:h-[55%] lg:rounded-none
         "
       ></div>
 
-      {/* Foto berada di bawah background biru */}
       <div
         className="
           flex justify-center 
-          mt-40 sm:mt-48 md:mt-56 lg:mt-64
+          mt-40 sm:mt-48 md:mt-56 lg:my-8
           relative z-10
         "
       >
-        <Image
-          src="/images/illustrations/register.png"
-          alt="register Illustration"
-          width={320}
-          height={320}
+        <div
           className="
-            w-[180px] h-[180px]
-            sm:w-[200px] sm:h-[200px]
-            md:w-[240px] md:h-[240px]
-            lg:w-[280px] lg:h-[280px]
-            xl:w-[320px] xl:h-[320px]
+            w-[220px] sm:w-[260px] md:w-[320px] lg:w-[380px] xl:w-[480px]
+            aspect-[4/3] relative
           "
-        />
+        >
+          <Image
+            src="/images/illustrations/register.png"
+            alt="register Illustration"
+            fill
+            className="object-contain"
+            priority
+          />
+        </div>
       </div>
+
 
       {/* Bagian teks dan tombol */}
       <div
