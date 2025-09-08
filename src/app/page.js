@@ -74,7 +74,7 @@ export default function Home() {
       .some((c) => c.startsWith("token="));
 
     if (!hasToken) {
-      window.location.replace("/user/login");
+      window.location.replace("/user/");
     }
   }, []);
 
