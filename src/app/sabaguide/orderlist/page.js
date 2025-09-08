@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import BottomNav from "@/components/BottomNav";
 import { Search, ArrowLeft, MessageCircle, Settings } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Navigation from "@/components/Navigation";
 
 /**
  * SabaGuide - Order List / Booking Guide
@@ -361,7 +361,7 @@ function PaymentSummary() {
       >
         BOOKING GUIDE NOW!
       </button>
-      <BottomNav />
+      <Navigation />
     </div>
     
   );

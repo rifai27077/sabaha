@@ -50,9 +50,9 @@ export default function Navigation({ active = "home" }) {
 
       {/* FAB SAHABA */}
       <div className="relative -translate-y-6 flex flex-col items-center">
-        <button
-          onClick={() => {}}
-          className="bg-[#103051] border-4 border-white text-white p-3 rounded-full shadow-xl cursor-pointer transition-transform hover:scale-105"
+        <Link
+          href="/"
+          className="bg-[#103051] border-4 border-white text-white p-3 rounded-full shadow-xl cursor-pointer transition-transform hover:scale-105 flex items-center justify-center"
           aria-label="SAHABA"
         >
           <Image
@@ -61,7 +61,7 @@ export default function Navigation({ active = "home" }) {
             width={35}
             height={35}
           />
-        </button>
+        </Link>
         <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-[11px] font-semibold text-black">
           SAHABA
         </div>
