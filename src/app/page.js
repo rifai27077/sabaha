@@ -4,13 +4,13 @@ import { Mail, LogOut, Plus, History, Eye, Utensils, Shirt, Badge, Moon, Star, F
 import Navigation from "@/components/Navigation";
 import Link from "next/link"
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 const services = [
   { name: "SabaFood", icon: <Utensils className="w-10 h-10 text-amber-500" />, href: "/sabafood" },
   { name: "SabaWash", icon: <Shirt className="w-10 h-10 text-amber-500" />, href: "/sabawash" },
 
-  // Custom kombinasi untuk SabaPray
   { 
     name: "SabaPray",
     href: "/sabapray",
@@ -66,6 +66,17 @@ const cards = [
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("Semua");
+  const router = useRouter();
+
+  useEffect(() => {
+    const hasToken = document.cookie
+      .split("; ")
+      .some((c) => c.startsWith("token="));
+
+    if (!hasToken) {
+      window.location.replace("/user/login");
+    }
+  }, []);
 
   const filteredCards = activeTab === "Semua"
     ? cards
@@ -87,8 +98,17 @@ export default function Home() {
             <Mail size={25} className="md:w-5 md:h-5" /><span className="text-sm md:text-lg lg:text-xl">Pesan</span>
           </Link>
 
-          <Link href="/user/login" className="flex flex-col items-center gap-1 md:gap-2 text-white no-underline hover:text-gray-200">
-            <LogOut size={25} className="md:w-5 md:h-5" /><span className="text-sm md:text-lg lg:text-xl">Keluar</span>
+          <Link 
+            href="/user/login"
+            onClick={() => {
+              // hapus cookie
+              document.cookie = "token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+              // reload page supaya middleware trigger
+              window.location.href = "/user/login";
+            }}
+            className="flex flex-col items-center gap-1 md:gap-2 text-white no-underline hover:text-gray-200"
+          >
+            <LogOut size={25} /><span className="text-sm md:text-lg lg:text-xl">Keluar</span>
           </Link>
         </nav> 
       </header>

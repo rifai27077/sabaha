@@ -10,6 +10,7 @@ export default function UserLogin() {
     const router = useRouter()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [error, setError] = useState("")
 
     const [open, setOpen] = useState(false)
     const [showDropdown, setShowDropdown] = useState(false)
@@ -23,9 +24,23 @@ export default function UserLogin() {
         }
     }, [open])
 
+    const validUsers = [
+        { email: "rifai@mail.com", password: "123456" },
+    ]
+
     const handleLogin = (e) => {
         e.preventDefault()
-        console.log("Login dengan:", { email, password })
+
+        const user = validUsers.find(
+            (user) => user.email === email && user.password === password
+        )
+
+        if (user) {
+            document.cookie = "token=exampleToken; path=/; max-age=86400; SameSite=Lax";
+            window.location.href = "/";
+        } else {
+            setError("Email or password is incorrect");
+        }
     }
 
     const accounts = [
@@ -85,6 +100,10 @@ export default function UserLogin() {
                         />
                         <Lock className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                     </div>
+
+                    {error && (
+                        <p className="text-red-500 text-sm">{error}</p>
+                    )}
 
                     <button
                         type="submit"
@@ -150,7 +169,10 @@ export default function UserLogin() {
                             <button
                                 key={account.email}
                                 className="bg-gray-100 w-full flex items-center justify-between py-3 px-4 border rounded-lg mb-2 hover:bg-gray-200 text-left"
-                                onClick={() => console.log(`Login with ${account.email}`)}
+                                onClick={() => {
+                                    document.cookie = "token=exampleToken; path=/"
+                                    router.push("/")
+                                }}
                             >
                                 <div className="flex items-center space-x-3">
                                     <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
@@ -183,8 +205,8 @@ export default function UserLogin() {
                                             key={account.email}
                                             className="bg-gray-100 w-full flex items-center justify-between py-3 px-4 border rounded-lg hover:bg-gray-200 text-left"
                                             onClick={() => {
-                                                console.log(`Login with ${account.email}`)
-                                                setShowDropdown(false)
+                                                document.cookie = "token=exampleToken; path=/"
+                                                router.push("/")
                                             }}
                                         >
                                             <div className="flex items-center space-x-3">

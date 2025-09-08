@@ -109,9 +109,9 @@ export default function MitraLogin() {
                 </button>
 
                 <p className="mt-6 text-center text-sm sm:text-base text-gray-600">
-                    Sudah Punya Akun?{" "}
+                    Belum Punya Akun?{" "}
                     <button
-                        onClick={() => router.push("/user/login")}
+                        onClick={() => router.push("/mitra/register")}
                         className="text-blue-500 font-medium cursor-pointer"
                     >
                         Masuk

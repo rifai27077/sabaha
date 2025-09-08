@@ -15,9 +15,9 @@ export default function OnboardingPage() {
           -top-[35%] left-[57%] -translate-x-1/2
           w-[150%] aspect-square
           bg-[#103051] rounded-full
-          flex items-center justify-center
           z-0
           transition-all duration-300
+          pointer-events-none
 
           /* Tablet */
           sm:-top-[90%] sm:w-[140%]
@@ -27,20 +27,29 @@ export default function OnboardingPage() {
 
           /* Large desktop */
           lg:top-0 lg:left-0 lg:translate-x-0
-          lg:w-full lg:h-[45%] lg:rounded-none
+          lg:w-full lg:h-[60%] lg:rounded-none
+        "
+      ></div>
+
+      {/* Foto berada di bawah background biru */}
+      <div
+        className="
+          flex justify-center 
+          mt-40 sm:mt-48 md:mt-56 lg:mt-64
+          relative z-10
         "
       >
         <Image
           src="/images/illustrations/register.png"
           alt="register Illustration"
-          width={220}
-          height={220}
+          width={320}
+          height={320}
           className="
-            z-10
             w-[180px] h-[180px]
             sm:w-[200px] sm:h-[200px]
             md:w-[240px] md:h-[240px]
-            lg:w-[260px] lg:h-[260px]
+            lg:w-[280px] lg:h-[280px]
+            xl:w-[320px] xl:h-[320px]
           "
         />
       </div>
@@ -50,21 +59,6 @@ export default function OnboardingPage() {
         className="
           flex flex-col items-start px-6 text-left mt-auto
           relative z-10
-
-          /* Phone */
-          mt-[270px]
-
-          /* Tablet */
-          sm:mt-[450px]
-
-          /* iPad / medium screen */
-          md:mt-[400px]
-
-          /* Desktop */
-          lg:mt-[400px]
-
-          /* Extra large screens */
-          xl:mt-[400px]
         "
       >
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#103051] leading-tight">
@@ -88,5 +82,5 @@ export default function OnboardingPage() {
       {/* Spacer bawah */}
       <div className="h-12"></div>
     </div>
-  );
+  )
 }
