@@ -35,10 +35,30 @@ export default function UserRegister() {
         })
     }
 
-    const handleRegister = (e) => {
-        e.preventDefault()
-        console.log("Register dengan:", form)
-    }
+    const handleRegister = async (e) => {
+        e.preventDefault();
+
+        try {
+            const res = await fetch("/api/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(form),
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+            alert("Registrasi berhasil!");
+            router.push("/user/login");
+            } else {
+            alert(data.error || "Gagal registrasi");
+            }
+        } catch (err) {
+            console.error(err);
+            alert("Terjadi kesalahan server");
+        }
+    };
+
 
     const accounts = [
         { name: "Rafi", email: "rafinazwan@gmail.com" },
@@ -199,7 +219,11 @@ export default function UserRegister() {
                             <button
                                 key={account.email}
                                 className="bg-gray-100 w-full flex items-center justify-between py-3 px-4 border rounded-lg mb-2 hover:bg-gray-200 text-left"
-                                onClick={() => console.log(`Login with ${account.email}`)}
+                                onClick={() => {
+                                    // ✅ set cookie token biar sama seperti login
+                                    document.cookie = "token=exampleToken; path=/; max-age=86400; SameSite=Lax";
+                                    router.push("/"); // redirect ke home
+                                }}
                             >
                                 <div className="flex items-center space-x-3">
                                     <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
@@ -232,8 +256,8 @@ export default function UserRegister() {
                                             key={account.email}
                                             className="bg-gray-100 w-full flex items-center justify-between py-3 px-4 border rounded-lg hover:bg-gray-200 text-left"
                                             onClick={() => {
-                                                console.log(`Login with ${account.email}`)
-                                                setShowDropdown(false)
+                                                document.cookie = "token=exampleToken; path=/; max-age=86400; SameSite=Lax";
+                                                router.push("/");
                                             }}
                                         >
                                             <div className="flex items-center space-x-3">

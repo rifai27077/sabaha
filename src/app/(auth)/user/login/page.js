@@ -24,24 +24,30 @@ export default function UserLogin() {
         }
     }, [open])
 
-    const validUsers = [
-        { email: "rifai@mail.com", password: "123456" },
-    ]
+    const handleLogin = async (e) => {
+    e.preventDefault();
 
-    const handleLogin = (e) => {
-        e.preventDefault()
+    try {
+        const res = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+        });
 
-        const user = validUsers.find(
-            (user) => user.email === email && user.password === password
-        )
+        const data = await res.json();
 
-        if (user) {
-            document.cookie = "token=exampleToken; path=/; max-age=86400; SameSite=Lax";
-            window.location.href = "/";
+        if (res.ok) {
+        // ✅ kalau login berhasil, buat cookie token
+        document.cookie =
+            "token=exampleToken; path=/; max-age=86400; SameSite=Lax";
+        router.push("/");
         } else {
-            setError("Email or password is incorrect");
+        setError(data.error || "Login gagal");
         }
+    } catch (err) {
+        setError("Terjadi kesalahan server");
     }
+    };
 
     const accounts = [
         { name: "Rafi", email: "rafinazwan@gmail.com" },
