@@ -32,7 +32,7 @@ export default function SabaFoodPage() {
             rating: 4.9,
             delivery: "10 min",
             distance: "0.2 km",
-            img: "/images/sabafood/resto1.jpg",
+            img: "/images/sabafood/rahwa.png",
         },
         {
             id: "an-ihl-chicken",
@@ -41,7 +41,7 @@ export default function SabaFoodPage() {
             rating: 4.9,
             delivery: "15 min",
             distance: "1.0 km",
-            img: "/images/sabafood/resto2.jpg",
+            img: "/images/sabafood/an-ihl.jpg",
         },
         {
             id: "araiz-food",
@@ -50,7 +50,7 @@ export default function SabaFoodPage() {
             rating: 4.9,
             delivery: "35 min",
             distance: "1.5 km",
-            img: "/images/sabafood/resto3.jpg",
+            img: "/images/sabafood/araiz.png",
         },
     ]
 
