@@ -130,7 +130,7 @@ export default function Page({ params }) {
                     return next;
                   })
                 }
-                onOpen={() => router.push(`/sabaguide/profile/${p.slug}`)}
+                onOpen={() => router.push(`/sabaguide/profile/[slug]`.replace("[slug]", p.slug))}
               />
             ))}
           </div>
