@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import BottomNav from "@/components/BottomNav";
+import Navigation from "@/components/Navigation";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, MessageCircle, Settings, CreditCard, Banknote } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -127,7 +127,7 @@ export default function PaymentOptionsPage() {
         </div>
       </main>
 
-      <BottomNav />
+      <Navigation />
     </div>
   );
 }

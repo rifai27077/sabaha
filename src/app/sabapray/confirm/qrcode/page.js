@@ -10,7 +10,7 @@ export default function QRCodePaymentPage() {
   const router = useRouter();
 
   const handlePaymentSuccess = () => {
-    router.push("/sabapray/muthowwif/confirm/success");
+    router.push("/sabapray/confirm/success");
   };
 
   return (

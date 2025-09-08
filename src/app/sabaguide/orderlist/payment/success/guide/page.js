@@ -1,14 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import BottomNav from "@/components/BottomNav";
+import Navigation from "@/components/Navigation";
 import { useRouter } from "next/navigation";
 import {
   ArrowLeft,
   MessageCircle,
   Settings,
-  Search,
-  Navigation,
+  Navigation2,
   Phone,
   MessageSquare,
 } from "lucide-react";
@@ -70,7 +69,7 @@ export default function GuideAfterSuccessPage() {
         </div>
       </section>
 
-      <BottomNav />
+      <Navigation />
 
       {/* small keyframes used above (same easing vibe as reference) */}
       <style jsx>{`
@@ -260,7 +259,7 @@ function FooterActions() {
       <div className="flex items-center justify-center gap-8">
         <div className="flex flex-col items-center gap-2">
           <button className="w-14 h-14 rounded-full bg-[#DD8E23] grid place-content-center shadow">
-            <Navigation className="w-6 h-6 text-white" />
+            <Navigation2 className="w-6 h-6 text-white" />
           </button>
           <span className="text-[13px] text-gray-900">Location</span>
         </div>
@@ -283,6 +282,7 @@ function FooterActions() {
       {/* Back button */}
       <button
         type="button"
+        onClick={() => window.history.back()}
         className="mt-5 mx-auto block w-44 rounded-full bg-[#DD8E23] text-white font-semibold py-2.5 shadow active:scale-[0.99]"
       >
         Back
