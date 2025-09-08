@@ -224,20 +224,38 @@ export default function Home() {
                 </button>
               ))}
             </div>
-          </div>
 
-         {/* Card Informasi */}
-          <div className="flex flex-col gap-4">
-            {filteredCards.map((item, i) => (
-              <div key={i} className="flex items-center gap-4 bg-white rounded-2xl shadow-md p-4">
-                <Image src={item.img} alt={item.title} width={80} height={80} className="rounded-lg object-cover flex-shrink-0" />
-                <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900 text-sm md:text-base">{item.title}</h3>
-                  <p className="text-gray-600 text-xs md:text-sm mt-1 line-clamp-2">{item.desc}</p>
+            {/* Card Informasi dengan scroll */}
+            <div className="mt-4 max-h-[400px] overflow-y-auto pr-2 space-y-4 no-scrollbar">
+              {filteredCards.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-4 bg-white rounded-2xl shadow-md p-4"
+                >
+                  <Image
+                    src={item.img}
+                    alt={item.title}
+                    width={80}
+                    height={80}
+                    className="rounded-lg object-cover flex-shrink-0"
+                  />
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900 text-sm md:text-base">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-600 text-xs md:text-sm mt-1 line-clamp-2">
+                      {item.desc}
+                    </p>
+                  </div>
+                  <a
+                    href="#"
+                    className="text-blue-500 text-sm font-medium whitespace-nowrap"
+                  >
+                    Lihat &gt;
+                  </a>
                 </div>
-                <a href="#" className="text-blue-500 text-sm font-medium whitespace-nowrap">Lihat &gt;</a>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
         <Navigation active="home" />
