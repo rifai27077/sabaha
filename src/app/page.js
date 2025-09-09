@@ -94,7 +94,7 @@ export default function Home() {
 
          {/* Navigation */}
         <nav className="flex items-center gap-4 md:gap-8 text-sm md:text-base">
-          <Link href="" className="flex flex-col items-center gap-1 md:gap-2 text-white no-underline hover:text-gray-200">
+          <Link href="/pesan" className="flex flex-col items-center gap-1 md:gap-2 text-white no-underline hover:text-gray-200">
             <Mail size={25} className="md:w-5 md:h-5" /><span className="text-sm md:text-lg lg:text-xl">Pesan</span>
           </Link>
 
@@ -103,7 +103,6 @@ export default function Home() {
             onClick={() => {
               // hapus cookie
               document.cookie = "token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-              // reload page supaya middleware trigger
               window.location.href = "/user/login";
             }}
             className="flex flex-col items-center gap-1 md:gap-2 text-white no-underline hover:text-gray-200"
@@ -135,7 +134,7 @@ export default function Home() {
                                 Assalamualaikum, Rafi!
                             </div>
 
-                            <a href="#" className="flex text-[#2B93FEC2] text-sm hover:underline">Profil &gt;</a>
+                            <Link href="/profile" className="flex text-[#2B93FEC2] text-sm hover:underline">Profil &gt;</Link>
                         </div>
                     </div>
 
@@ -156,20 +155,25 @@ export default function Home() {
                         <div>
                             <div className="font-medium text-sm">Saldo Anda</div>
                             <div className="flex items-center text-2xl font-bold"> SR 400,00
-                                <button className="ml-2"><Eye size={25} color="#FFAA01" /></button>
+                                <button 
+                                className="ml-2"><Eye size={25} color="#FFAA01" /></button>
                             </div>
-                            <a href="#" className="text-[#FFAA01] text-sm mt-1 inline-block hover:text-[#FFAA01]"> Buka Detail &gt; </a>
+                            <Link href="/detail" className="text-[#FFAA01] text-sm mt-1 inline-block hover:text-[#FFAA01]"> Buka Detail &gt; </Link>
                         </div>
 
                         {/* Kanan: Tombol sejajar */}
                         <div className="flex gap-3">
                             <div className="grid grid-cols-1 gap-1 text-center">
-                                <button className="bg-white text-[#103051] rounded-xl px-4 py-2 font-semibold hover:bg-gray-100"><Plus size={20} /></button>
+                                <button 
+                                onClick={() => router.push('/topup')}
+                                className="bg-white text-[#103051] rounded-xl px-4 py-2 font-semibold hover:bg-gray-100"><Plus size={20} /></button>
                                 <span>Top Up</span>
                             </div>
 
                             <div className="grid grid-cols-1 gap-1 text-center">
-                                <button className="bg-white text-[#103051] rounded-xl px-4 py-2 font-semibold hover:bg-gray-100"><History size={20} /></button>
+                                <button 
+                                onClick={() => router.push('/history')}
+                                className="bg-white text-[#103051] rounded-xl px-4 py-2 font-semibold hover:bg-gray-100"><History size={20} /></button>
                                 <span>History</span>
                             </div>
                         </div>
@@ -248,7 +252,7 @@ export default function Home() {
                     </p>
                   </div>
                   <a
-                    href="#"
+                    href="/lihat"
                     className="text-blue-500 text-sm font-medium whitespace-nowrap"
                   >
                     Lihat &gt;
