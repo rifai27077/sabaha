@@ -131,7 +131,7 @@ export default function Home() {
 
                         <div>
                             <div className="font-light text-black text-lg">
-                                Assalamualaikum, Rafi!
+                                Assalamualaikum
                             </div>
 
                             <Link href="/profile" className="flex text-[#2B93FEC2] text-sm hover:underline">Profil &gt;</Link>
