@@ -13,23 +13,14 @@ function RideStatusContent() {
   const router = useRouter()
   const { rideData } = useRide()
 
-  // Ambil data ride dari query
-  const ride = {
-    name: searchParams.get("ride"),
-    price: parseFloat(searchParams.get("price")) || 0,
-    pickup: searchParams.get("pickup"),
-    destination: searchParams.get("destination"),
-    paymentMethod: searchParams.get("payment"),
-  }
-
   // Driver dummy data
   const driver = {
     name: "Andiniswari Nur",
     distance: "900m (5mins away)",
     rating: 4.6,
     reviews: 52,
-    image: "/driver.jpg",
-    carImage: "/car.png",
+    image: "/images/sabadrive/driver2.png",
+    carImage: rideData?.image || "/images/sabadrive/order/car.png",
   }
 
   return (

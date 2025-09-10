@@ -105,7 +105,7 @@ export default function ChatPage() {
       </div>
 
       {/* Chat Input */}
-      <div className="border-t text-black bg-white px-3 py-2 flex items-center space-x-2 fixed bottom-16 left-0 right-0 z-20">
+      <div className="border-t text-black bg-white px-3 py-2 mb-6 flex items-center space-x-2 fixed bottom-16 left-0 right-0 z-20">
 
         <Link href="/sabapray/voice-call">
         <button className="p-2 rounded-full bg-[#103051] text-white">

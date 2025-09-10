@@ -41,11 +41,11 @@ function ConfirmPartnerContent() {
 
   const handleNext = () => {
     if (payment === "wallet") {
-      router.push("/sabapray/muthowwif/confirm/confirmpin")
+      router.push("/sabapray/confirm/confirmpin")
     } else if (payment === "qris") {
-      router.push("/sabapray/muthowwif/confirm/qrcode")
+      router.push("/sabapray/confirm/qrcode")
     } else {
-      router.push("/sabapray/muthowwif/payment-success")
+      router.push("/sabapray/confirm/success")
     }
   }
 
