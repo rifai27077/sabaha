@@ -25,7 +25,7 @@ export default function OrderSummary() {
 
     const deliveryOptions = [
         { id: "economic", label: "Economic - 24 mins", price: 123 },
-        { id: "priority", label: "Priority - 12 mins", price: 0 },
+        { id: "priority", label: "Priority - 12 mins", price: 213 },
     ]
 
     const [selectedDeliveryIndex, setSelectedDeliveryIndex] = useState(0)
