@@ -24,8 +24,8 @@ export default function OrderSummary() {
     const { basket, addToBasket, removeFromBasket, totalItems, totalPrice, clearBasket } = useBasket()
 
     const deliveryOptions = [
-        { id: "priority", label: "Priority - 12 mins", price: 0 },
         { id: "economic", label: "Economic - 24 mins", price: 123 },
+        { id: "priority", label: "Priority - 12 mins", price: 0 },
     ]
 
     const [selectedDeliveryIndex, setSelectedDeliveryIndex] = useState(0)

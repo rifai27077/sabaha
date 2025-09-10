@@ -82,49 +82,68 @@ function ConfirmPartnerContent() {
               ))}
             </div>
 
-            {/* Time slots */}
-            <div className="mt-3 grid grid-cols-5 gap-2">
-              {timeSlots.map((t, idx) => (
-                <button
-                  key={t}
-                  onClick={() => setActiveTime(idx)}
-                  className={`rounded-xl border px-2 py-2 text-xs font-medium text-center whitespace-nowrap ${
-                    activeTime === idx
-                      ? "border-blue-500 bg-blue-50 text-blue-600"
-                      : "border-gray-300 bg-white text-gray-700"
-                  }`}
-                >
-                  {t}
-                </button>
-              ))}
-            </div>
+{/* Time slots */}
+<div className="mt-3">
+  <div className="flex md:grid md:grid-cols-5 gap-2 overflow-x-auto scrollbar-thin pb-2">
+    {timeSlots.map((t, idx) => {
+      const [first, second] = t.split(" ") // pisah jadi 2 kata
+      return (
+        <button
+          key={t}
+          onClick={() => setActiveTime(idx)}
+          className={`flex-shrink-0 rounded-xl border px-3 py-2 text-xs font-medium text-center ${
+            activeTime === idx
+              ? "border-blue-500 bg-blue-50 text-blue-600"
+              : "border-gray-300 bg-white text-gray-700"
+          }`}
+        >
+          <span className="block sm:hidden">
+            {first} <br /> {second}
+          </span>
+          <span className="hidden sm:inline">{t}</span>
+        </button>
+      )
+    })}
+  </div>
+</div>
 
-            {/* Groups */}
+
             <div className="mt-4">
-              <label className="block text-[13px] text-gray-700 mb-1">Number of Groups</label>
-              <button
-                type="button"
-                className="w-full flex items-center justify-between rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm"
-                onClick={() =>
-                  setGroups((g) => (g === "1 Person" ? "2 Persons" : "1 Person"))
-                }
+              <label className="block text-[13px] text-gray-700 mb-1">
+                Number of Groups
+              </label>
+              <select
+                value={groups}
+                onChange={(e) => setGroups(e.target.value)}
+                className="w-full rounded-xl border border-gray-300 bg-white text-gray-700 px-3 py-2 text-sm"
               >
-                <span>{groups}</span>
-                <ChevronDown className="w-4 h-4 text-gray-500" />
-              </button>
+                <option value="1 Person">1 Person</option>
+                <option value="2 Persons">2 Persons</option>
+                <option value="3 Persons">3 Persons</option>
+                <option value="4 Persons">4 Persons</option>
+                <option value="5 Persons">5 Persons</option>
+              </select>
             </div>
 
             {/* Gender */}
             <div className="mt-3">
               <label className="block text-[13px] text-gray-700 mb-1">Gender</label>
-              <button
-                type="button"
-                className="w-full flex items-center justify-between rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm"
-                onClick={() => setGender((g) => (g === "Male" ? "Female" : "Male"))}
-              >
-                <span>{gender}</span>
-                <ChevronDown className="w-4 h-4 text-gray-500" />
-              </button>
+              <div className="grid grid-cols-2 gap-2">
+                {["Male", "Female"].map((g) => (
+                  <button
+                    key={g}
+                    type="button"
+                    onClick={() => setGender(g)}
+                    className={`w-full rounded-xl border px-3 py-2 text-sm ${
+                      gender === g
+                        ? "border-blue-500 bg-blue-50 text-blue-600"
+                        : "border-gray-300 bg-white text-gray-700"
+                    }`}
+                  >
+                    {g}
+                  </button>
+                ))}
+              </div>
             </div>
 
             {/* Payments */}

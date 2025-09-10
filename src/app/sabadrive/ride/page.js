@@ -72,7 +72,7 @@ export default function RideOptionsPage() {
         src={`https://www.openstreetmap.org/export/embed.html?bbox=${
           lng - 0.01
         },${lat - 0.02},${lng + 0.01},${lat + 0.01}&layer=mapnik&marker=${lat},${lng}`}
-        className="absolute inset-0 w-full h-full border-0 pt-14" // kasih padding-top setara tinggi header
+        className="absolute inset-0 w-full h-full border-0 pt-14"
         allowFullScreen
       ></iframe>
 
@@ -113,12 +113,14 @@ export default function RideOptionsPage() {
                   <p className="text-sm text-gray-400">{ride.desc}</p>
                 </div>
               </div>
-              <p className="font-medium text-black text-lg">
-                {new Intl.NumberFormat("en-IN", {
-                  style: "currency",
-                  currency: "INR",
-                }).format(ride.price)}
-              </p>
+                <p className="font-medium text-black text-lg">
+                  {new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "SAR",
+                    currencyDisplay: "code",
+                    minimumFractionDigits: 0,
+                  }).format(ride.price)}
+                </p>
             </div>
           ))}
         </div>

@@ -168,20 +168,6 @@ export default function LaundryDetailPage() {
         </div>
       </section>
 
-      {/* placeholders */}
-      <div className="px-6 md:px-10 mt-6">
-        <div className="flex items-center justify-between gap-4">
-          {Array(3)
-            .fill(null)
-            .map((_, i) => (
-              <div
-                key={i}
-                className="flex-1 h-12 md:h-14 rounded-full border border-gray-400"
-              />
-            ))}
-        </div>
-      </div>
-
       {/* services */}
       <div className="px-6 md:px-10 mt-8">
         <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 text-center">

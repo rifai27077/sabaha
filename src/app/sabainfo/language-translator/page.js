@@ -32,9 +32,9 @@ export default function TranslatePage() {
           </div>
 
           <div className="relative bg-gray-100 rounded-xl p-4 mb-4">
-            <span className="block text-gray-500 mb-2">Arabic</span>
+            <span className="block text-gray-600 mb-2 font-medium">Arabic</span>
             <textarea
-              className="w-full bg-transparent outline-none resize-none"
+              className="w-full bg-transparent outline-none resize-none text-gray-500"
               rows="4"
               placeholder="Enter text here..."
               value={text}

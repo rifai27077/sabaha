@@ -1,15 +1,22 @@
+
+"use client";
+
 import { ArrowLeft, Cloud, Sun, CloudRain, CloudLightning } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Header from "@/components/Header";
+import { useRouter } from "next/navigation";
 
 export default function WeatherForecastPage() {
+  const router = useRouter();
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-400 to-blue-600 flex flex-col">
       <Header location="Pullman Hotel Zam-Zam Tower" showChat showSettings />
 
       <div className="flex-1 p-4">
         <div className="flex items-center justify-between text-white mb-4">
-          <button className="p-2">
+          <button 
+          onClick={() => router.back()}
+          className="p-2 cursor-pointer">
             <ArrowLeft className="w-6 h-6" />
           </button>
           <h2 className="text-lg font-semibold">Weather Forecast</h2>

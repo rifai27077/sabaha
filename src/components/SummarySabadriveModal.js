@@ -131,14 +131,6 @@ export default function SummaryModal({ show, onClose, ride, pickup, destination 
         </div>
         </div>
 
-
-          <div className="flex items-center gap-3 p-3 rounded-lg border border-gray-200 text-gray-400 cursor-not-allowed">
-            <CreditCard className="w-6 h-6" />
-            <div>
-              <p className="font-medium">QRIS</p>
-              <p className="text-sm">Only Exact Amount of Money</p>
-            </div>
-          </div>
         </div>
 
         {/* Confirm Button */}

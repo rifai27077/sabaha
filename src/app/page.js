@@ -95,7 +95,7 @@ export default function Home() {
 
          {/* Navigation */}
         <nav className="flex items-center gap-4 md:gap-8 text-sm md:text-base">
-          <Link href="/pesan" className="flex flex-col items-center gap-1 md:gap-2 text-white no-underline hover:text-gray-200">
+          <Link href="/sabapray/check-order" className="flex flex-col items-center gap-1 md:gap-2 text-white no-underline hover:text-gray-200">
             <Mail size={25} className="md:w-5 md:h-5" /><span className="text-sm md:text-lg lg:text-xl">Pesan</span>
           </Link>
 

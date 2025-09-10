@@ -16,7 +16,7 @@ export default function RestaurantDetail() {
     const { basket, addToBasket, removeFromBasket, totalItems, totalPrice } = useBasket()
 
     const restaurantInfo = {
-        name: "Al - Baik Zam-Zam Tower",
+        name: "Chicken Menu Recommendation",
         category: "Rice, Chicken & Nugget, Beverages",
         rating: 4.9,
         deliveryTime: "10 min",
