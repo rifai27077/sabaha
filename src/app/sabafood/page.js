@@ -80,7 +80,7 @@ export default function SabaFoodPage() {
                 </div>
                 <div className="px-6 mt-4 relative z-10">
                     <p className="text-white font-bold leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-[0_8px_12px_rgba(0,0,0,0.5)] text-left md:text-center md:my-10 lg:whitespace-nowrap">
-                        <span className="text-[#FFAA01]">Hungry?</span> We're on the way!
+                        <span className="text-[#FFAA01]">Hungry?</span>  We&apos;re on the way!
                     </p>
                 </div>
                 <div className="pb-8 mt-4 md:pb-12 relative z-10">

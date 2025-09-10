@@ -1,13 +1,12 @@
-
 "use client"
 
+import { Suspense, useState, useMemo } from "react"
+import { useSearchParams, useRouter } from "next/navigation"
 import Header from "@/components/Header"
 import Navigation from "@/components/Navigation"
-import { useMemo, useState } from "react"
-import { useSearchParams, useRouter } from "next/navigation"
 import { ChevronDown, Wallet, QrCode, Banknote } from "lucide-react"
 
-export default function ConfirmPartnerPage() {
+function ConfirmPartnerContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const selectedType = searchParams.get("type") || "Umroh Set"
@@ -35,24 +34,9 @@ export default function ConfirmPartnerPage() {
   const [payment, setPayment] = useState("")
 
   const payments = [
-    {
-      key: "wallet",
-      title: "My Wallet",
-      subtitle: "SAR 200.00",
-      icon: Wallet,
-    },
-    {
-      key: "qris",
-      title: "QRIS",
-      subtitle: "All Payment Systems",
-      icon: QrCode,
-    },
-    {
-      key: "cash",
-      title: "CASH",
-      subtitle: "Only Exact Amount of Money",
-      icon: Banknote,
-    },
+    { key: "wallet", title: "My Wallet", subtitle: "SAR 200.00", icon: Wallet },
+    { key: "qris", title: "QRIS", subtitle: "All Payment Systems", icon: QrCode },
+    { key: "cash", title: "CASH", subtitle: "Only Exact Amount of Money", icon: Banknote },
   ]
 
   const handleNext = () => {
@@ -72,6 +56,7 @@ export default function ConfirmPartnerPage() {
       <section className="-mt-1 bg-white rounded-t-3xl pt-4 px-4 flex-1 shadow-md">
         <div className="max-w-md mx-auto">
           <div className="bg-white rounded-3xl shadow-md border border-gray-200 p-4 mt-2">
+            {/* Title */}
             <div className="flex flex-col items-center">
               <div className="w-24 h-1.5 bg-gray-200 rounded-full mb-3" />
               <h2 className="text-[#0f2f51] font-semibold text-base">
@@ -79,51 +64,44 @@ export default function ConfirmPartnerPage() {
               </h2>
             </div>
 
+            {/* Dates */}
             <div className="mt-4 grid grid-cols-5 gap-2">
-              {dates.map((d, idx) => {
-                const active = idx === activeDate
-                return (
-                  <button
-                    key={`${d.day}-${d.date}`}
-                    onClick={() => setActiveDate(idx)}
-                    className={[
-                      "flex flex-col items-center rounded-xl border py-2",
-                      active
-                        ? "border-blue-500 bg-blue-50 text-blue-600"
-                        : "border-gray-300 bg-white text-gray-800",
-                    ].join(" ")}
-                  >
-                    <span className="text-xs">{d.day}</span>
-                    <span className="text-sm font-semibold">{d.date}</span>
-                  </button>
-                )
-              })}
+              {dates.map((d, idx) => (
+                <button
+                  key={`${d.day}-${d.date}`}
+                  onClick={() => setActiveDate(idx)}
+                  className={`flex flex-col items-center rounded-xl border py-2 ${
+                    activeDate === idx
+                      ? "border-blue-500 bg-blue-50 text-blue-600"
+                      : "border-gray-300 bg-white text-gray-800"
+                  }`}
+                >
+                  <span className="text-xs">{d.day}</span>
+                  <span className="text-sm font-semibold">{d.date}</span>
+                </button>
+              ))}
             </div>
 
+            {/* Time slots */}
             <div className="mt-3 grid grid-cols-5 gap-2">
-              {timeSlots.map((t, idx) => {
-                const active = idx === activeTime
-                return (
-                  <button
-                    key={t}
-                    onClick={() => setActiveTime(idx)}
-                    className={[
-                      "rounded-xl border px-2 py-2 text-xs font-medium text-center whitespace-nowrap",
-                      active
-                        ? "border-blue-500 bg-blue-50 text-blue-600"
-                        : "border-gray-300 bg-white text-gray-700",
-                    ].join(" ")}
-                  >
-                    {t}
-                  </button>
-                )
-              })}
+              {timeSlots.map((t, idx) => (
+                <button
+                  key={t}
+                  onClick={() => setActiveTime(idx)}
+                  className={`rounded-xl border px-2 py-2 text-xs font-medium text-center whitespace-nowrap ${
+                    activeTime === idx
+                      ? "border-blue-500 bg-blue-50 text-blue-600"
+                      : "border-gray-300 bg-white text-gray-700"
+                  }`}
+                >
+                  {t}
+                </button>
+              ))}
             </div>
 
+            {/* Groups */}
             <div className="mt-4">
-              <label className="block text-[13px] text-gray-700 mb-1">
-                Number of Groups
-              </label>
+              <label className="block text-[13px] text-gray-700 mb-1">Number of Groups</label>
               <button
                 type="button"
                 className="w-full flex items-center justify-between rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm"
@@ -136,10 +114,9 @@ export default function ConfirmPartnerPage() {
               </button>
             </div>
 
+            {/* Gender */}
             <div className="mt-3">
-              <label className="block text-[13px] text-gray-700 mb-1">
-                Gender
-              </label>
+              <label className="block text-[13px] text-gray-700 mb-1">Gender</label>
               <button
                 type="button"
                 className="w-full flex items-center justify-between rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm"
@@ -150,11 +127,10 @@ export default function ConfirmPartnerPage() {
               </button>
             </div>
 
+            {/* Payments */}
             <div className="mt-4">
               <div className="flex items-center justify-between">
-                <span className="text-[13px] text-gray-700">
-                  Select payment method
-                </span>
+                <span className="text-[13px] text-gray-700">Select payment method</span>
                 <button type="button" className="text-[12px] text-amber-600 font-medium">
                   View All
                 </button>
@@ -169,12 +145,11 @@ export default function ConfirmPartnerPage() {
                       key={p.key}
                       type="button"
                       onClick={() => setPayment(p.key)}
-                      className={[
-                        "w-full flex items-center gap-3 rounded-xl border px-3 py-2 text-left",
+                      className={`w-full flex items-center gap-3 rounded-xl border px-3 py-2 text-left ${
                         active
                           ? "border-amber-400 bg-amber-50"
-                          : "border-amber-300 bg-white",
-                      ].join(" ")}
+                          : "border-amber-300 bg-white"
+                      }`}
                     >
                       <div className="p-2 rounded-lg bg-amber-100 text-amber-700">
                         <Icon className="w-5 h-5" />
@@ -189,6 +164,7 @@ export default function ConfirmPartnerPage() {
               </div>
             </div>
 
+            {/* Order Summary */}
             <div className="mt-4">
               <div className="text-[13px] text-gray-700 mb-2">Order Summary</div>
               <div className="rounded-xl border border-gray-200 divide-y">
@@ -205,6 +181,7 @@ export default function ConfirmPartnerPage() {
               </div>
             </div>
 
+            {/* Next button */}
             <div>
               <button
                 type="button"
@@ -222,5 +199,13 @@ export default function ConfirmPartnerPage() {
 
       <Navigation active="home" />
     </div>
+  )
+}
+
+export default function ConfirmPartnerPage() {
+  return (
+    <Suspense fallback={<div className="p-6">Loading...</div>}>
+      <ConfirmPartnerContent />
+    </Suspense>
   )
 }

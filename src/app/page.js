@@ -126,8 +126,7 @@ export default function Home() {
 
                     {/* Kiri: Foto + Sapaan */}
                     <div className="flex items-center gap-2">
-                        {/* remote image: gunakan <img> bila belum menambahkan domain di next.config.js */}
-                        <img src="/images/profile.png" alt="Profil" className="w-12 h-12 rounded-full object-cover"/>
+                        <Image src="/images/profile.png" width={48} height={48} alt="Profil" className="w-12 h-12 rounded-full object-cover"/>
 
                         <div>
                             <div className="font-light text-black text-lg">

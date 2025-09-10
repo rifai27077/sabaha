@@ -29,7 +29,7 @@ export default function SummaryModal({ show, onClose, ride, pickup, destination 
 
         {/* Header */}
         <div className="flex justify-between items-center">
-          <h2 className="font-bold text-gray-900 text-lg">You're Summary Trip</h2>
+          <h2 className="font-bold text-gray-900 text-lg">You&apos;re Summary Trip</h2>
           <button onClick={onClose}>
             <X className="w-6 h-6 text-gray-600" />
           </button>

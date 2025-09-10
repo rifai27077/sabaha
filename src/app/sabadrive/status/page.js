@@ -1,5 +1,6 @@
 "use client"
 
+import { Suspense } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
 import Header from "@/components/Header"
 import Navigation from "@/components/Navigation"
@@ -7,12 +8,12 @@ import Image from "next/image"
 import { Phone, MessageSquare } from "lucide-react"
 import { useRide } from "@/context/RideContext"
 
-export default function RideStatusPage() {
+function RideStatusContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
+  const { rideData } = useRide()
 
-  const { rideData, setRideData } = useRide()
-
+  // Ambil data ride dari query
   const ride = {
     name: searchParams.get("ride"),
     price: parseFloat(searchParams.get("price")) || 0,
@@ -21,6 +22,7 @@ export default function RideStatusPage() {
     paymentMethod: searchParams.get("payment"),
   }
 
+  // Driver dummy data
   const driver = {
     name: "Andiniswari Nur",
     distance: "900m (5mins away)",
@@ -43,6 +45,7 @@ export default function RideStatusPage() {
 
       {/* Bottom Sheet */}
       <div className="absolute bottom-16 left-0 right-0 bg-white rounded-t-3xl shadow-xl z-30 p-6 space-y-5 max-h-[60vh] overflow-y-auto">
+        {/* Timer */}
         <p className="text-gray-700 font-medium">
           Your driver is coming in <span className="font-semibold">3:35</span>
         </p>
@@ -91,9 +94,9 @@ export default function RideStatusPage() {
         <div className="space-y-2">
           <h4 className="text-gray-600 font-medium">Payment Method</h4>
           <div className="bg-yellow-100/80 border border-amber-500 p-3 rounded-xl flex items-center justify-between">
-            <div>
-              <span className="text-gray-800 font-semibold capitalize">{rideData.payment}</span>
-            </div>
+            <span className="text-gray-800 font-semibold capitalize">
+              {rideData.payment}
+            </span>
             <span className="text-xl font-bold text-gray-900">
               SAR {rideData.price}
             </span>
@@ -102,14 +105,14 @@ export default function RideStatusPage() {
 
         {/* Actions */}
         <div className="flex items-center justify-between border-t pt-4 gap-3 mb-3">
-        <button 
+          <button
             onClick={() => router.push("/sabadrive/call")}
-            className="flex flex-col items-center text-[#103051] w-16">
+            className="flex flex-col items-center text-[#103051] w-16"
+          >
             <Phone className="w-6 h-6 mb-1" />
             <span className="text-xs">Call</span>
           </button>
 
-          {/* Message Button → go to chat */}
           <button
             onClick={() => router.push("/sabadrive/chat")}
             className="flex flex-col items-center text-[#103051] w-16"
@@ -119,8 +122,9 @@ export default function RideStatusPage() {
           </button>
 
           <button
-          onClick={() => router.push("/sabadrive/cancel")} 
-          className="flex-1 bg-[#103051] text-white py-3 rounded-xl font-semibold text-lg shadow-md hover:bg-[#001a3d] transition">
+            onClick={() => router.push("/sabadrive/cancel")}
+            className="flex-1 bg-[#103051] text-white py-3 rounded-xl font-semibold text-lg shadow-md hover:bg-[#001a3d] transition"
+          >
             Cancel Ride
           </button>
         </div>
@@ -128,5 +132,13 @@ export default function RideStatusPage() {
 
       <Navigation active="home" />
     </div>
+  )
+}
+
+export default function RideStatusPage() {
+  return (
+    <Suspense fallback={<div className="p-6">Loading...</div>}>
+      <RideStatusContent />
+    </Suspense>
   )
 }

@@ -75,7 +75,7 @@ export default function CleanPage() {
             setActiveBanner((p) => (p + 1) % banners.length)
         }, 4000)
         return () => clearInterval(t)
-    }, [])
+    }, [banners.length])
 
     const handleCheckout = () => {
         if (!owner || !weight || activeDate === null || activeTimeSlot === null || !selectedService) {

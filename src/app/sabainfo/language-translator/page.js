@@ -6,6 +6,7 @@ import { Mic, Camera, Repeat } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import TopNavAndSearch from "@/components/TopNavAndSearch";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function TranslatePage() {
   const [text, setText] = useState("");
@@ -20,12 +21,12 @@ export default function TranslatePage() {
         <div className="bg-white shadow-md rounded-2xl p-4">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <img src="/images/sabainfo/arab flag.jpeg" alt="US Flag" className="w-6 h-6 rounded-full" />
+              <Image src="/images/sabainfo/arab flag.jpeg" alt="US Flag" width={48} height={48} className="w-6 h-6 rounded-full" />
               <span className="text-black">Arabic</span>
             </div>
             <Repeat className="w-6 h-6 text-gray-500" />
             <div className="flex items-center gap-2">
-              <img src="/images/sabainfo/indonesia flag.jpeg" alt="Indonesian Flag" className="w-6 h-6 rounded-full" />
+              <Image src="/images/sabainfo/indonesia flag.jpeg" alt="Indonesian Flag" width={48} height={48} className="w-6 h-6 rounded-full" />
               <span className="text-black">Indonesian</span>
             </div>
           </div>

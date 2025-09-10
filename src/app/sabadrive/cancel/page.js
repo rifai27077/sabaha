@@ -132,7 +132,7 @@ export default function CancelRidePage() {
 
             <div className="text-6xl mb-4">😓</div>
             <h3 className="text-lg font-semibold text-gray-800">
-              We're so sad about your cancellation
+              We&apos;re so sad about your cancellation
             </h3>
             <p className="text-sm text-gray-500 mt-2">
               We will continue to improve our service & satisfy you on the next trip.

@@ -98,7 +98,7 @@ export default function LaundryDetailPage() {
           <div className="flex items-center justify-between flex-wrap gap-4">
             {/* left: profile */}
             <div className="flex items-center gap-3">
-              <img
+              <Image
                 src="/images/profile.png"
                 width={48}
                 height={48}

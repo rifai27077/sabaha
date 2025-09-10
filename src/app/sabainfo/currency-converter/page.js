@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import TopNavAndSearch from "@/components/TopNavAndSearch";
+import Image from "next/image";
 
 export default function CurrencyConverterPage() {
   const [sar, setSar] = useState("");
@@ -49,7 +50,7 @@ export default function CurrencyConverterPage() {
           {/* SAR Input */}
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <img src="/images/sabainfo/arab flag.jpeg" className="w-6 h-6 rounded-full" />
+              <Image src="/images/sabainfo/arab flag.jpeg" alt="US Flag" width={24} height={24} className="w-6 h-6 rounded-full" />
               <span className="text-black">SAR</span>
             </div>
             <input
@@ -73,7 +74,7 @@ export default function CurrencyConverterPage() {
           {/* IDR Output */}
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <img src="/images/sabainfo/indonesia flag.jpeg" className="w-6 h-6 rounded-full" />
+              <Image src="/images/sabainfo/indonesia flag.jpeg" alt="Indonesian Flag" width={24} height={24} className="w-6 h-6 rounded-full" />
               <span className="text-black">IDR</span>
             </div>
             <input

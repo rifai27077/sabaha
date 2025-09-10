@@ -11,32 +11,35 @@ export default function CameraAccessPage() {
   const streamRef = useRef(null);
   const pathname = usePathname();
 
-  useEffect(() => {
-    async function enableCamera() {
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-        streamRef.current = stream;
-        if (videoRef.current) {
-          videoRef.current.srcObject = stream;
-        }
-      } catch (error) {
-        console.error("Error accessing camera:", error);
-      }
-    }
-
-    enableCamera();
-
-    // 🔴 Cleanup ketika route berubah / halaman ditinggalkan
-    return () => {
-      if (streamRef.current) {
-        streamRef.current.getTracks().forEach((track) => track.stop());
-        streamRef.current = null;
-      }
+useEffect(() => {
+  async function enableCamera() {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      streamRef.current = stream;
       if (videoRef.current) {
-        videoRef.current.srcObject = null;
+        videoRef.current.srcObject = stream;
       }
-    };
-  }, [pathname]); // jalan setiap path berubah
+    } catch (error) {
+      console.error("Error accessing camera:", error);
+    }
+  }
+
+  enableCamera();
+
+  // ✅ Simpan reference ke variable lokal
+  const videoElement = videoRef.current;
+
+  return () => {
+    if (streamRef.current) {
+      streamRef.current.getTracks().forEach((track) => track.stop());
+      streamRef.current = null;
+    }
+    if (videoElement) {
+      videoElement.srcObject = null;
+    }
+  };
+}, [pathname]);
+
 
   return (
     <div className="flex flex-col min-h-screen bg-white">

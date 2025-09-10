@@ -155,7 +155,7 @@ function IntroCard() {
 
           <div className="flex-1">
             <h3 className="font-semibold text-gray-900 text-xl leading-snug">
-              Hello! I'm Fatah
+              Hello! I&apos;m Fatah
               <br />
               our tour guide.
             </h3>

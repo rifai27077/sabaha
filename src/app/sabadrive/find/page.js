@@ -1,5 +1,6 @@
 "use client"
 
+import { Suspense } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
 import Header from "@/components/Header"
 import Navigation from "@/components/Navigation"
@@ -10,6 +11,16 @@ import SummaryModal from "@/components/SummarySabadriveModal"
 import { useRide } from "@/context/RideContext"
 
 export default function FindRidePage() {
+
+  return (
+    <Suspense fallback={<div className="p-6 text-center">Loading...</div>}>
+      <FindRideContent />
+    </Suspense>
+  )
+
+}
+
+function FindRideContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const { rideData, setRideData } = useRide()

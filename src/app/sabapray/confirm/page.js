@@ -1,13 +1,13 @@
 "use client"
 
+import { Suspense, useState, useMemo } from "react"
+import { useSearchParams, useRouter } from "next/navigation"
 import Header from "@/components/Header"
 import Navigation from "@/components/Navigation"
 import Dropdown from "@/components/Dropdown"
-import { useMemo, useState } from "react"
-import { useSearchParams, useRouter } from "next/navigation"
 import { Wallet, QrCode, Banknote } from "lucide-react"
 
-export default function ConfirmMuthowwifPage() {
+function ConfirmContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const selectedType = searchParams.get("type") || "Umroh Set"
@@ -43,14 +43,14 @@ export default function ConfirmMuthowwifPage() {
   ]
 
   const handleNext = () => {
-  if (payment === "cash") {
-    router.push("/sabapray/confirm/success") // cash langsung sukses
-  } else if (payment === "qris") {
-    router.push("/sabapray/confirm/qrcode") // QRIS ke QR Code
-  } else {
-    router.push("/sabapray/confirm/confirmpin") // selain itu ke PIN
+    if (payment === "cash") {
+      router.push("/sabapray/confirm/success")
+    } else if (payment === "qris") {
+      router.push("/sabapray/confirm/qrcode")
+    } else {
+      router.push("/sabapray/confirm/confirmpin")
+    }
   }
-}
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
@@ -201,5 +201,13 @@ export default function ConfirmMuthowwifPage() {
 
       <Navigation active="home" />
     </div>
+  )
+}
+
+export default function ConfirmMuthowwifPage() {
+  return (
+    <Suspense fallback={<div className="p-6">Loading...</div>}>
+      <ConfirmContent />
+    </Suspense>
   )
 }
