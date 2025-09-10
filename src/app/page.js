@@ -1,6 +1,6 @@
 "use client"
 
-import { Mail, LogOut, Plus, History, Eye, Utensils, Shirt, Badge, Moon, Star, Flag, Car, Info } from "lucide-react";
+import { Mail, LogOut, Plus, History, Eye, Utensils, Shirt, Badge, Moon, Star, Flag, Car, Info, EyeOff } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Link from "next/link"
 import Image from "next/image";
@@ -66,6 +66,7 @@ const cards = [
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("Semua");
+  const [showSaldo, setShowSaldo] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
@@ -153,14 +154,22 @@ export default function Home() {
                         {/* Kiri: Saldo + Detail */}
                         <div>
                             <div className="font-medium text-sm">Saldo Anda</div>
-                            <div className="flex items-center text-2xl font-bold"> SR 400,00
-                                <button 
-                                className="ml-2"><Eye size={25} color="#FFAA01" /></button>
+                            <div className="flex items-center text-2xl font-bold">
+                            {showSaldo ? "SR 400,00" : "••••••"}
+                              <button
+                                onClick={() => setShowSaldo(!showSaldo)}
+                                className="ml-2 cursor-pointer">
+                                  {showSaldo ? (
+                                      <Eye size={25} color="#FFAA01" />
+                                    ) : (
+                                      <EyeOff size={25} color="#FFAA01" />
+                                    )}
+                              
+                              </button>
                             </div>
                             <Link href="/detail" className="text-[#FFAA01] text-sm mt-1 inline-block hover:text-[#FFAA01]"> Buka Detail &gt; </Link>
                         </div>
 
-                        {/* Kanan: Tombol sejajar */}
                         <div className="flex gap-3">
                             <div className="grid grid-cols-1 gap-1 text-center">
                                 <button 
