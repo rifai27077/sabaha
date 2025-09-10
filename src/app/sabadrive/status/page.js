@@ -105,7 +105,7 @@ function RideStatusContent() {
           </button>
 
           <button
-            onClick={() => router.push("/sabadrive/chat")}
+            onClick={() => router.push("/sabapray/check-order")}
             className="flex flex-col items-center text-[#103051] w-16"
           >
             <MessageSquare className="w-6 h-6 mb-1" />

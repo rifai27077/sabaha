@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { X, MapPin, Wallet, CreditCard, Star } from "lucide-react"
+import { X, MapPin, Wallet, CreditCard, Star, DollarSign, Banknote } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
 import { useRide } from "@/context/RideContext"
@@ -26,10 +26,11 @@ export default function SummaryModal({ show, onClose, ride, pickup, destination 
   return (
     <div className="fixed inset-0 z-50 flex items-end bg-black/50">
       <div className="w-full max-h-[85vh] overflow-y-auto bg-white rounded-t-2xl shadow-xl p-5 space-y-6">
-
         {/* Header */}
         <div className="flex justify-between items-center">
-          <h2 className="font-bold text-gray-900 text-lg">You&apos;re Summary Trip</h2>
+          <h2 className="font-bold text-gray-900 text-lg">
+            You&apos;re Summary Trip
+          </h2>
           <button onClick={onClose}>
             <X className="w-6 h-6 text-gray-600" />
           </button>
@@ -42,16 +43,22 @@ export default function SummaryModal({ show, onClose, ride, pickup, destination 
             <MapPin className="w-5 h-5 text-red-500 mt-1" />
             <div>
               <p className="font-medium text-gray-900">{pickup}</p>
-              <p className="text-sm text-gray-500">King Abdul Aziz, Makkah, Saudi Arabia</p>
+              <p className="text-sm text-gray-500">
+                King Abdul Aziz, Makkah, Saudi Arabia
+              </p>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <MapPin className="w-5 h-5 text-green-600 mt-1" />
             <div>
               <p className="font-medium text-gray-900">{destination}</p>
-              <p className="text-sm text-gray-500">King Abdul Aziz, Makkah, Saudi Arabia</p>
+              <p className="text-sm text-gray-500">
+                King Abdul Aziz, Makkah, Saudi Arabia
+              </p>
             </div>
-            <span className="ml-auto text-sm font-medium text-gray-700">1.1 km</span>
+            <span className="ml-auto text-sm font-medium text-gray-700">
+              1.1 km
+            </span>
           </div>
         </div>
 
@@ -78,11 +85,15 @@ export default function SummaryModal({ show, onClose, ride, pickup, destination 
           <h3 className="font-semibold text-gray-800 mb-2">Charges</h3>
           <div className="flex justify-between">
             <span className="text-gray-600">Standart Price</span>
-            <span className="font-medium text-gray-500">SAR {ride.price.toFixed(2)}</span>
+            <span className="font-medium text-gray-500">
+              SAR {ride.price.toFixed(2)}
+            </span>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-600">Vat (5%)</span>
-            <span className="font-medium text-gray-500">SAR {vat.toFixed(2)}</span>
+            <span className="font-medium text-gray-500">
+              SAR {vat.toFixed(2)}
+            </span>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-600">Promo Code</span>
@@ -99,13 +110,19 @@ export default function SummaryModal({ show, onClose, ride, pickup, destination 
         {/* Payment Method */}
         <div className="bg-white rounded-xl p-4 shadow space-y-3">
           <div className="flex justify-between items-center">
-            <h4 className="font-semibold text-gray-800">Select payment method</h4>
-            <button className="text-sm font-medium text-[#103051]">View All</button>
+            <h4 className="font-semibold text-gray-800">
+              Select payment method
+            </h4>
+            <button className="text-sm font-medium text-[#103051]">
+              View All
+            </button>
           </div>
 
           <div
             className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer ${
-              payment === "wallet" ? "border-yellow-400 bg-yellow-50" : "border-gray-200"
+              payment === "wallet"
+                ? "border-yellow-400 bg-yellow-50"
+                : "border-gray-200"
             }`}
             onClick={() => setPayment("wallet")}
           >
@@ -116,21 +133,41 @@ export default function SummaryModal({ show, onClose, ride, pickup, destination 
             </div>
           </div>
 
-        <div
-        className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer ${
-            payment === "qris"
-            ? "border-gray-400 bg-gray-100 text-gray-800"
-            : "border-gray-200 text-gray-400"
-        }`}
-        onClick={() => setPayment("qris")}
-        >
-        <CreditCard className={`w-6 h-6 ${payment === "qris" ? "text-gray-700" : ""}`} />
-        <div>
-            <p className="font-medium">QRIS</p>
-            <p className="text-sm">All Payment Systems</p>
-        </div>
-        </div>
+          <div
+            className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer ${
+              payment === "qris"
+                ? "border-gray-400 bg-gray-100 text-gray-800"
+                : "border-gray-200 text-gray-400"
+            }`}
+            onClick={() => setPayment("qris")}
+          >
+            <CreditCard
+              className={`w-6 h-6 ${payment === "qris" ? "text-gray-700" : ""}`}
+            />
+            <div>
+              <p className="font-medium text-gray-800">QRIS</p>
+              <p className="text-sm text-gray-500">All Payment Systems</p>
+            </div>
+          </div>
 
+          <div
+            className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer ${
+              payment === "cash"
+                ? "border-green-400 bg-green-50 text-gray-800"
+                : "border-gray-200 text-gray-600"
+            }`}
+            onClick={() => setPayment("cash")}
+          >
+            <Banknote
+              className={`w-6 h-6 ${
+                payment === "cash" ? "text-green-600" : "text-gray-400"
+              }`}
+            />
+            <div>
+              <p className="font-medium text-gray-800">Cash</p>
+              <p className="text-sm text-gray-500">Only Exact Amount of Money</p>
+            </div>
+          </div>
         </div>
 
         {/* Confirm Button */}
@@ -141,7 +178,6 @@ export default function SummaryModal({ show, onClose, ride, pickup, destination 
           Confirm Ride
         </button>
       </div>
-      
     </div>
-  )
+  );
 }

@@ -82,30 +82,30 @@ function ConfirmPartnerContent() {
               ))}
             </div>
 
-{/* Time slots */}
-<div className="mt-3">
-  <div className="flex md:grid md:grid-cols-5 gap-2 overflow-x-auto scrollbar-thin pb-2">
-    {timeSlots.map((t, idx) => {
-      const [first, second] = t.split(" ") // pisah jadi 2 kata
-      return (
-        <button
-          key={t}
-          onClick={() => setActiveTime(idx)}
-          className={`flex-shrink-0 rounded-xl border px-3 py-2 text-xs font-medium text-center ${
-            activeTime === idx
-              ? "border-blue-500 bg-blue-50 text-blue-600"
-              : "border-gray-300 bg-white text-gray-700"
-          }`}
-        >
-          <span className="block sm:hidden">
-            {first} <br /> {second}
-          </span>
-          <span className="hidden sm:inline">{t}</span>
-        </button>
-      )
-    })}
-  </div>
-</div>
+            {/* Time slots */}
+            <div className="mt-3">
+              <div className="flex md:grid md:grid-cols-5 gap-2 overflow-x-auto scrollbar-thin pb-2">
+                {timeSlots.map((t, idx) => {
+                  const [first, second] = t.split(" ")
+                  return (
+                    <button
+                      key={t}
+                      onClick={() => setActiveTime(idx)}
+                      className={`flex-shrink-0 rounded-xl border px-3 py-2 text-xs font-medium text-center ${
+                        activeTime === idx
+                          ? "border-blue-500 bg-blue-50 text-blue-600"
+                          : "border-gray-300 bg-white text-gray-700"
+                      }`}
+                    >
+                      <span className="block sm:hidden">
+                        {first} <br /> {second}
+                      </span>
+                      <span className="hidden sm:inline">{t}</span>
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
 
 
             <div className="mt-4">
