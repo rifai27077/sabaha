@@ -16,6 +16,7 @@ import {
 } from "lucide-react"
 import { useBasket } from "@/context/BasketContext"
 import Header from "@/components/Header"
+import Link from "next/link"
 
 export default function OrderSummary() {
     const router = useRouter()
@@ -241,20 +242,23 @@ export default function OrderSummary() {
             </div>
         </div>
 
-            <div className="px-4 mt-4 space-y-2">
-                <p className="text-sm font-medium text-black">Offers</p>
-                <div className="bg-white rounded-xl p-3 shadow-sm flex items-center justify-between cursor-pointer">
-                    <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-[#FDECD3] flex items-center justify-center">
-                            <Tag className="w-4 h-4 text-[#DD8E23]" />
-                        </div>
-                        <p className="text-sm font-medium text-gray-500">
-                            Use offers or promo code
-                        </p>
+        <div className="px-4 mt-4 space-y-2">
+            <p className="text-sm font-medium text-black">Offers</p>
+            <Link
+                href={`/sabafood/offers?restaurantId=${restaurantId}`}
+                className="bg-white rounded-xl p-3 shadow-sm flex items-center justify-between cursor-pointer"
+            >
+                <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-[#FDECD3] flex items-center justify-center">
+                        <Tag className="w-4 h-4 text-[#DD8E23]" />
                     </div>
-                    <ChevronRight className="w-5 h-5 text-gray-500" />
+                    <p className="text-sm font-medium text-gray-500">
+                        Use offers or promo code
+                    </p>
                 </div>
-            </div>
+                <ChevronRight className="w-5 h-5 text-gray-500" />
+            </Link>
+        </div>
 
             {basket.length > 0 && (
                 <div className="fixed bottom-0 left-0 right-0 z-50 bg-white px-4 pb-4 pt-3 shadow-lg">
