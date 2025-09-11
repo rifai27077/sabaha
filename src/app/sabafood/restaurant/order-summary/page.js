@@ -12,6 +12,7 @@ import {
     MapPin,
     Tag,
     ChevronRight,
+    Banknote,
 } from "lucide-react"
 import { useBasket } from "@/context/BasketContext"
 import Header from "@/components/Header"
@@ -229,7 +230,7 @@ export default function OrderSummary() {
                 >
                     <div className="flex items-center gap-3">
                         <div className="p-2 rounded-full bg-[#FDECD3]">
-                            <MapPin className="w-5 h-5 text-[#DD8E23]" />
+                            <Banknote className="w-5 h-5 text-[#DD8E23]" />
                         </div>
                         <p className="text-sm font-medium text-gray-500">Cash</p>
                     </div>
